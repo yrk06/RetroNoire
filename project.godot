@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "",
+"class": "FmodNative",
+"language": "NativeScript",
+"path": "res://addons/fmod/Fmod.gdns"
+}, {
+"base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://git_api.gdns"
 } ]
 _global_script_class_icons={
+"FmodNative": "",
 "GitAPI": ""
 }
 
@@ -23,9 +29,13 @@ _global_script_class_icons={
 config/name="RetroNoire"
 config/icon="res://icon.png"
 
+[autoload]
+
+Fmod="*res://addons/fmod/Fmod.gd"
+
 [editor_plugins]
 
-enabled=PoolStringArray( "LogicConectors" )
+enabled=PoolStringArray( "LogicConectors", "fmod" )
 
 [gdnative]
 
