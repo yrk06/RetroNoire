@@ -47,6 +47,11 @@ func process_movement(direction):
 	move_and_slide(direction * speed)
 	
 func interact():
+	var portas = $DoorArea.get_overlapping_bodies()
+	if len(portas) > 0:
+		#Processar porta
+		return
+	
 	var pistas = $InteractArea.get_overlapping_areas()
 	if len(pistas) > 0:
 		if not pistas[0].get_parent().state['investigada']:
