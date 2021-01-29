@@ -16,3 +16,9 @@ func take_player_movement():
 	
 func give_player_movement():
 	get_node('/root/MainTree/Player').has_movement = true
+
+func take_player_control():
+	get_node('/root/MainTree/Player').has_control = false
+	
+func give_player_control():
+	get_node('/root/MainTree/Player').has_control = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Maps/Functional/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://NPCs/NPC.tscn" type="PackedScene" id=3]
 
 [sub_resource type="TileSet" id=1]
 0/name = "icon.png 0"
@@ -55,3 +56,16 @@ local_position_entry = Vector2( 0, 120 )
 [node name="Door3" parent="CentralRegion" instance=ExtResource( 2 )]
 position = Vector2( 0, 136 )
 local_position_entry = Vector2( 0, -120 )
+
+[node name="NPC" parent="CentralRegion" instance=ExtResource( 3 )]
+position = Vector2( 64, -32 )
+Type = 2
+dialogs = {
+"concordar": [ "Fico Feliz em ajudar" ],
+"dialogo Inicial": [ "Estava muito nublado", "Acho que vi alguém andando no telhado a noite" ],
+"doubt": [ "Ahh, me lembrei, de mais uma coisa" ],
+"later": [ "Claro, Estarei aqui" ],
+"lie": [ "Você acha que eu estou mentindo ?!" ],
+"recusa": [ "Pode ir andando, não te ajudo mais" ],
+"verdade": [ "Eu vi duas pessoas andando no telhado a noite", "ele estava acompanhado de um cara que escalou essa casa bem rápido" ]
+}
