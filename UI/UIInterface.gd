@@ -28,3 +28,20 @@ func abrir_menu_analise(sprite,analise):
 	analise_node.get_node('MarginContainer/VBoxContainer/HBoxContainer/Img').texture = sprite
 	analise_node.get_node('MarginContainer/VBoxContainer/Label').text = analise
 	PlayerInterface.take_player_movement()
+
+##Abre uma textbox com espaço pra seleções. além disso chama <callback> em <node>
+# com o numero da opcão selecionada
+func abrir_text_box_com_opcoes(dialogo,opcoes,node,callback):
+	var txt_node = get_node('/root/MainTree/UI/UIControl/TextBoxes')
+	txt_node.wOptions(dialogo,opcoes,node,callback)
+	txt_node.visible = true
+	PlayerInterface.take_player_control()
+	pass
+
+##Abre uma textbox padrão
+func abrir_text_box(dialogo):
+	var txt_node = get_node('/root/MainTree/UI/UIControl/TextBoxes')
+	txt_node.classic(dialogo)
+	txt_node.visible = true
+	PlayerInterface.take_player_control()
+	pass
