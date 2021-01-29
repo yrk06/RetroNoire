@@ -19,17 +19,9 @@ func _ready():
 	Fmod.add_listener(0, $Node2D)
 	
 	## Tocar os eventos
-	var event = Fmod.create_event_instance("event:/mx_dynamic")
+	var event = Fmod.create_event_instance("event:/mx_gameplay_dynamic")
 	Fmod.start_event(event)
-	
-	var tension = 0
-	while tension <= 1:
-		Fmod.set_global_parameter_by_name("mx_tension",tension)
-		tension += 0.1
-		yield(get_tree().create_timer(2),"timeout")
-		
-	Fmod.stop_event(event,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
-	Fmod.release_event(event)
+	Fmod.set_event_volume(event,0.3)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
