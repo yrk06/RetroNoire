@@ -13,6 +13,8 @@ var has_movement = true
 var mov_direction = Vector2()
 export var speed = 32
 
+var pistas_encontradas = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -47,6 +49,8 @@ func process_movement(direction):
 func interact():
 	var pistas = $InteractArea.get_overlapping_areas()
 	if len(pistas) > 0:
+		if not pistas[0].get_parent().state['investigada']:
+			pistas_encontradas.append(pistas[0].get_parent().backend_pista_reference)
 		pistas[0].get_parent().interact()
 		return
 		
@@ -59,3 +63,30 @@ func interact():
 		
 		
 		
+
+
+func _on_InteractArea_area_entered(area):
+	## Tem uma pista perto
+	var value = 0
+	if area.get_parent().state['investigada']:
+		
+		while value <= 1:
+			Fmod.set_global_parameter_by_name('mx_pista',value)
+			value += 0.2
+			yield(get_tree().create_timer(0.02),"timeout")
+	else:
+		while value <= 2:
+			Fmod.set_global_parameter_by_name('mx_pista',value)
+			value += 0.2
+			yield(get_tree().create_timer(0.02),"timeout")
+	pass
+
+
+func _on_InteractArea_area_exited(area):
+	var remaining = $InteractArea.get_overlapping_areas()
+	if len(remaining) -1 == 0:
+		var value = Fmod.get_global_parameter_by_name('mx_pista')
+		while value > 0:
+			Fmod.set_global_parameter_by_name('mx_pista',value)
+			value -= 0.1
+			yield(get_tree().create_timer(0.05),"timeout")
