@@ -34,6 +34,7 @@ config/icon="res://icon.png"
 Fmod="*res://addons/fmod/Fmod.gd"
 UiInterface="*res://UI/UIInterface.gd"
 PlayerInterface="*res://Player/PlayerInterface.gd"
+Game="*res://Game.gd"
 
 [display]
 
@@ -91,11 +92,11 @@ interact={
 
 [layer_names]
 
-3d_physics/layer_1="Genral World"
-3d_physics/layer_2="Player"
-3d_physics/layer_3="NPCs"
-3d_physics/layer_4="Pistas"
-3d_physics/layer_5="Portas"
+2d_physics/layer_1="General World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="NPCs"
+2d_physics/layer_4="Pistas"
+2d_physics/layer_5="Portas"
 
 [rendering]
 
