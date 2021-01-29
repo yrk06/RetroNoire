@@ -19,7 +19,7 @@ func _ready():
 ## Functions
 
 func abrir_menu_analise(sprite,analise):
-	var analise_node = get_node('/root/Game/UI/UIControl/Analise')
+	var analise_node = get_node('/root/MainTree/UI/UIControl/Analise')
 	if analise_node.visible:
 		analise_node.visible = false
 		PlayerInterface.give_player_movement()
