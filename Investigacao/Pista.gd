@@ -6,6 +6,9 @@ export (Texture) var big_sprite
 
 export (String) var analise
 
+## Por enquanto = self
+var backend_pista_reference = self
+
 var state = {
 	'investigada':false
 }
