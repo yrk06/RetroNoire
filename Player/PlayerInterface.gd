@@ -12,7 +12,7 @@ func _ready():
 
 
 func take_player_movement():
-	get_node('/root/Game/Player').has_movement = false
+	get_node('/root/MainTree/Player').has_movement = false
 	
 func give_player_movement():
-	get_node('/root/Game/Player').has_movement = true
+	get_node('/root/MainTree/Player').has_movement = true
