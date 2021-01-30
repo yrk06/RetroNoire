@@ -19,7 +19,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -64, 64 )
+position = Vector2( -192, -112 )
 speed = 64
 
 [node name="UI" parent="." instance=ExtResource( 3 )]

@@ -77,5 +77,7 @@ func handle_response(res):
 				UiInterface.abrir_text_box(dialogs['lie']+dialogs['recusa'])
 	#persistent_reference.update_state(state)
 
-
+func set_frames(pack,variant):
+	$AnimatedSprite.frames = pack
+	$AnimatedSprite.animation = variant
 

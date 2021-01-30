@@ -30,9 +30,12 @@ func _ready():
 	##Fmod.add_listener(0, $Node2D)
 	
 	## Tocar os eventos
-	var event = Fmod.create_event_instance("event:/mx_gameplay_dynamic")
-	Fmod.start_event(event)
-	Fmod.set_event_volume(event,0.1)
+	var mx_gameplay = Fmod.create_event_instance("event:/mx_gameplay_dynamic")
+	Fmod.start_event(mx_gameplay)
+	Fmod.set_event_volume(mx_gameplay,0.25)
+	
+	var bg_noite = Fmod.create_event_instance("event:/bg_noite") 
+	Fmod.start_event(bg_noite)
 
 func enter_door(door):
 	## we need to load interior?

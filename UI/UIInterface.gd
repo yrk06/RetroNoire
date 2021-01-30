@@ -45,3 +45,5 @@ func abrir_text_box(dialogo):
 	txt_node.visible = true
 	PlayerInterface.take_player_control()
 	pass
+
+
