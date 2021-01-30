@@ -27,13 +27,16 @@ var state = {
 	'angry':false,
 	'defeated':false,
 }
+
+var persistent_reference = null
+
+var location
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	unlock_options()
-	pass # Replace with function body.
+	if location:
+		position = location
 
-func unlock_options():
-	options = [ "Até mais", "Concordar", "Duvidar", "Mentira"]
+
 
 func interact():
 	if Type == NPC_Types.IRRELEVANTE:
@@ -51,8 +54,10 @@ func handle_response(res):
 	match res:
 		0: ## Até mais
 			UiInterface.abrir_text_box(dialogs['later'])
+			return
 		1: ## Concordar
 			UiInterface.abrir_text_box(dialogs['concordar'])
+			return
 		2: ## Mentir
 			if Type == NPC_Types.NEUTRO:
 				state['defeated'] = true
@@ -69,6 +74,7 @@ func handle_response(res):
 			else:
 				state['angry'] = true
 				UiInterface.abrir_text_box(dialogs['lie']+dialogs['recusa'])
+	persistent_reference.update_state(state)
 
 
 
