@@ -66,7 +66,7 @@ func handle_response(res):
 			else:
 				state['angry'] = true
 				
-				UiInterface.abrir_text_box(dialogs['doubt']+dialogs['recusa'])
+				UiInterface.abrir_text_box(dialogs['lie']+dialogs['recusa'])
 			
 		3: ## Até mais
 			if Type == NPC_Types.MAU:
