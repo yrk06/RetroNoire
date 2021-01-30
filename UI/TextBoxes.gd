@@ -85,6 +85,7 @@ func wOptions(dialog,option,node,callback):
 	current_node_info['callback'] = callback
 	connect("text_finished",self,"phrase_finished_op")
 	$Timer.start()
+	speech()
 
 func classic(dialog):
 	$Normal.visible = true
@@ -93,6 +94,7 @@ func classic(dialog):
 	currentLetterIndex = 0
 	connect("text_finished",self,"phrase_finished")
 	$Timer.start()
+	speech()
 
 func phrase_finished_op():
 	if currentPhraseIndex < len(current_dialog)-1:
@@ -145,6 +147,7 @@ func phrase_finished_handler():
 	set_text('')
 	disable_inputs()
 	$Timer.start()
+	speech()
 	
 
 func _add_letter():
@@ -160,3 +163,15 @@ func set_text(value):
 	$wOptions/MarginContainer/HBoxContainer/Text.text = value
 	$Normal/MarginContainer/Label.text = value
 	text = value
+
+func speech():
+	var speech_event = Fmod.create_event_instance("event:/fx_npc_loop")
+	
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	Fmod.set_event_timeline_position(speech_event,rng.randi_range(0,20)*1000)
+	Fmod.start_event(speech_event)
+	Fmod.set_event_volume(speech_event,1.5)
+	yield(get_tree().create_timer(1),"timeout")
+	Fmod.stop_event(speech_event,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
+	Fmod.release_event(speech_event)
