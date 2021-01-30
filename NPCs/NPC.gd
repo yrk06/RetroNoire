@@ -59,22 +59,22 @@ func handle_response(res):
 		1: ## Concordar
 			UiInterface.abrir_text_box(dialogs['concordar'])
 			return
-		2: ## Mentir
+		2: ## Duvida
 			if Type == NPC_Types.NEUTRO:
 				state['defeated'] = true
 				UiInterface.abrir_text_box(dialogs['doubt']+dialogs['verdade'])
 			else:
 				state['angry'] = true
 				
-				UiInterface.abrir_text_box(dialogs['lie']+dialogs['recusa'])
+				UiInterface.abrir_text_box(dialogs['doubt']+dialogs['recusa'])
 			
-		3: ## Até mais
+		3: ## Mentir
 			if Type == NPC_Types.MAU:
 				state['defeated'] = true
 				UiInterface.abrir_text_box(dialogs['lie']+dialogs['verdade'])
 			else:
 				state['angry'] = true
-				UiInterface.abrir_text_box(dialogs['doubt']+dialogs['recusa'])
+				UiInterface.abrir_text_box(dialogs['lie']+dialogs['recusa'])
 	#persistent_reference.update_state(state)
 
 
