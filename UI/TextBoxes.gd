@@ -58,10 +58,14 @@ func reset():
 	selection_enabled = false
 	
 	PlayerInterface.give_player_control()
-	disconnect("text_finished",self,"phrase_finished_op")
-	disconnect("text_finished",self,"phrase_finished")
-	disconnect("input_event",self,"reset")
-	disconnect("input_event",self,"reset_player_signals")
+	if is_connected("text_finished",self,"phrase_finished_op"):
+		disconnect("text_finished",self,"phrase_finished_op")
+	if is_connected("text_finished",self,"phrase_finished"):
+		disconnect("text_finished",self,"phrase_finished")
+	if is_connected("input_event",self,"reset"):
+		disconnect("input_event",self,"reset")
+	if is_connected("input_event",self,"reset_player_signals"):
+		disconnect("input_event",self,"reset_player_signals")
 	
 func reset_player_signals():
 	if current_node_info['node'] != null:
@@ -95,11 +99,7 @@ func phrase_finished_op():
 		currentPhraseIndex += 1
 		currentLetterIndex = 0
 		input_enabled = true
-		connect("input_event",$Timer,'start')
-		connect("input_event",self,'disconnect',["input_event",$Timer,"start"])
-		
-		connect("input_event",self,'set_text',[''])
-		connect("input_event",self,'disable_inputs')
+		connect("input_event",self,'phrase_finished_handler')
 		
 	else:
 		enable_options()
@@ -133,16 +133,19 @@ func phrase_finished():
 		currentPhraseIndex += 1
 		currentLetterIndex = 0
 		input_enabled = true
-		connect("input_event",$Timer,'start')
-		connect("input_event",self,'disconnect',["input_event",$Timer,"start"])
-		
-		connect("input_event",self,'set_text',[''])
-		connect("input_event",self,'disable_inputs')
+		connect("input_event",self,'phrase_finished_handler')
 		
 	else:
 		input_enabled = true
 		connect("input_event",self,'reset_player_signals')
 		connect("input_event",self,'reset')
+
+func phrase_finished_handler():
+	disconnect("input_event",self,"phrase_finished_handler")
+	set_text('')
+	disable_inputs()
+	$Timer.start()
+	
 
 func _add_letter():
 	if currentLetterIndex >= len(current_dialog[currentPhraseIndex]):
