@@ -1,0 +1,38 @@
+{
+	"NPCs":[
+		{
+			"name": "Gnomo",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["Teste"],
+				"later": ["te vejo por aí"],
+			},
+			"options": ["Até mais"],
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":null,
+			"location":{
+				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"x": 40,
+				"y": -40
+			}
+		}
+	],
+	"Pistas":[
+		{
+			"analise":"Duas marcas de passos diferentes. duas pessoas estiveram aqui",
+			"state":{
+				"investigada":false
+			},
+			"name":"pegadasduplas",
+			"location":{
+				"path":"/root/MainTree/Interior/TestInterior",
+				"x": -56,
+				"y": -56
+			},
+			"npcs":["Gnomo"]
+		}
+	]
+}

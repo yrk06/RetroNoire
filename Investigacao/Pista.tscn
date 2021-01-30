@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Investigacao/Pista.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.0
+
+[node name="Pista" type="Node2D"]
+script = ExtResource( 1 )
+small_sprite = ExtResource( 2 )
+big_sprite = ExtResource( 2 )
+
+[node name="Size" type="Area2D" parent="."]
+monitoring = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Size"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 0.1, 0.1 )
