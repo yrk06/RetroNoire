@@ -47,6 +47,7 @@ func enter_door(door):
 			##Unload any possible interiors
 			for c in get_node('/root/MainTree/Interior').get_children():
 				c.queue_free()
+				yield(c,"tree_exited")
 			## Load Interior at pos (0,0)
 			var interior = load("res://Maps/Interior/"+door.interior_node_name+".tscn").instance()
 			get_node('/root/MainTree/Interior').add_child(interior)
@@ -54,6 +55,7 @@ func enter_door(door):
 		##Unload map
 		for c in get_node('/root/MainTree/WorldMapNode').get_children():
 			c.queue_free()
+			yield(c,"tree_exited")
 		
 		##Position Player
 		get_node('/root/MainTree/Player').global_position = door.local_position_entry
@@ -73,6 +75,7 @@ func enter_door(door):
 	##Position Player
 	get_node('/root/MainTree/Player').global_position = door.local_position_entry
 	try_loading_npcs()
+	try_loading_pistas()
 	
 func try_loading_npcs():
 	for p in case_NPCs:
