@@ -34,7 +34,6 @@ func _ready():
 	Fmod.start_event(event)
 	Fmod.set_event_volume(event,0.1)
 
-
 func enter_door(door):
 	## we need to load interior?
 	var to_interior = door.to_interior
@@ -185,7 +184,6 @@ func load_game():
 	for p in pistas:
 		instantiate_pista(load_pista(p))
 	
-
 func get_file_paths_in_folder(folder_path: String) -> Array:
 	
 	var file_paths := []
