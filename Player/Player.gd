@@ -25,11 +25,12 @@ func _physics_process(delta):
 	process_movement(mov_direction)
 
 func process_input():
+	
+	mov_direction = Vector2()
 	if not has_control:
 		return
 	## Movement
 	if has_movement:
-		mov_direction = Vector2()
 		if Input.is_action_pressed("walk_up"):
 			mov_direction.y -= 1
 		if Input.is_action_pressed("walk_down"):
