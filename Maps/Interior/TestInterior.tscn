@@ -57,10 +57,6 @@ to_interior = true
 interior_node_name = "TestInterior"
 local_position_entry = Vector2( 48, 48 )
 
-[node name="Pista" parent="." instance=ExtResource( 3 )]
-position = Vector2( -56, -56 )
-analise = "Panetone Vencido"
-
 [node name="Pista2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 48, -16 )
 analise = "Marcas de quebrado"

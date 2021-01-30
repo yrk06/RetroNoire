@@ -58,7 +58,7 @@ position = Vector2( 0, 136 )
 local_position_entry = Vector2( 0, -120 )
 
 [node name="NPC" parent="CentralRegion" instance=ExtResource( 3 )]
-position = Vector2( 64, -32 )
+position = Vector2( 88, -48 )
 Type = 2
 dialogs = {
 "concordar": [ "Fico Feliz em ajudar" ],
