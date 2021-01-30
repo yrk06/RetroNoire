@@ -107,7 +107,9 @@ func load_npc(data):
 func instantiate_npc(npc):
 	var where = get_node(npc.location["path"])
 	if where:
-		where.add_child(npc.createNPCInstansce())
+		var instance = npc.createNPCInstansce()
+		if instance:
+			where.add_child(instance)
 
 func load_pista(data):
 	var pista = pistaObject.new()
@@ -118,7 +120,9 @@ func load_pista(data):
 func instantiate_pista(pista):
 	var where = get_node(pista.location["path"])
 	if where:
-		where.add_child(pista.createPistaInstansce())
+		var instance = pista.createPistaInstansce()
+		if instance:
+			where.add_child(instance)
 
 func save_game():
 	##Pegar todas as infos persistentes e salvar
