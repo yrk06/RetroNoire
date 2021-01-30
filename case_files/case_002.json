@@ -1,0 +1,106 @@
+{
+	"NPCs":[
+		{
+			"name": "Aleatorio",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["Bom Dia, sou um bystander qualquer"],
+				"later": ["te vejo por aí"],
+			},
+			"options": ["Até mais"],
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":null,
+			"location":{
+				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"x": 0,
+				"y": 64
+			}
+		},
+		{
+			"name": "Bom",
+			"Type": 1,
+			"dialogs": {
+				"dialogo Inicial": ["Vi o sujeito, ele estava de casaco"],
+				"later": ["fico te esperando"],
+				"concordar": ["Que bom que te ajudei"],
+			},
+			"options": ["Até mais","Confirmar"],
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":null,
+			"location":{
+				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"x": 64,
+				"y": 0
+			}
+		},
+		{
+			"name": "Mau",
+			"Type": 3,
+			"dialogs": {
+				"dialogo Inicial": ["Era um rapaz de roupa azul, ele que roubou a loja"],
+				"later": ["estou aqui se precisar"],
+				"concordar": ["Va rápido antes que ele fuja"],
+				"doubt":["Acha que eu não tenho certeza do que eu to falando?"],
+				"recusa":["Vai lá então e faz do seu jeito"],
+				"lie":["..."],
+				"verdade":["pensando melhor, a jaqueta era vermelha"]
+			},
+			"options": ["Até mais","Concordar"],
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":null,
+			"location":{
+				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"x": 0,
+				"y": 0
+			}
+		},
+		{
+			"name": "Neutro",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["Acho que ele tinha corrido para esquerda"],
+				"later": ["Fico por aqui"],
+				"concordar": ["Que bom que ajudei"],
+				"doubt":["É verdade, tem mais"],
+				"recusa":["Não tenho mais nada pra falar"],
+				"lie":["Você acha que eu não sei o que vi?"],
+				"verdade":["Ele começou a correr para esquerda mas virou para cima"]
+			},
+			"options": ["Até mais", "Concordar"],
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":null,
+			"location":{
+				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"x": -64,
+				"y": 0
+			}
+		}
+	],
+	"Pistas":[
+		{
+			"analise":"Peça de jaqueta vermelha rasgada",
+			"state":{
+				"investigada":false
+			},
+			"name":"jaqvermelha",
+			"location":{
+				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"x": 0,
+				"y": -64
+			},
+			"npcs":["Mau","Neutro"]
+		}
+	]
+}

@@ -2,7 +2,7 @@
 	"NPCs":[
 		{
 			"name": "Gnomo",
-			"Type": 0,
+			"Type": 1,
 			"dialogs": {
 				"dialogo Inicial": ["Teste"],
 				"later": ["te vejo por aí"],
