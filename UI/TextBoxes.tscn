@@ -5,7 +5,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://UI/TextBoxes.gd" type="Script" id=4]
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 render_mode unshaded;
 
@@ -16,11 +16,11 @@ void fragment()
 COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, float(blurSize)/10.0);
 }"
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/blurSize = 20
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 8
 font_data = ExtResource( 1 )
 
@@ -33,7 +33,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource( 3 )
+material = SubResource( 2 )
 margin_right = 320.0
 margin_bottom = 180.0
 texture = ExtResource( 3 )
@@ -75,7 +75,7 @@ margin_bottom = 80.0
 margin_right = 216.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 216, 80 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 align = 3
 autowrap = true
 __meta__ = {
@@ -119,7 +119,7 @@ __meta__ = {
 margin_right = 312.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 312, 80 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 autowrap = true
 
 [node name="Timer" type="Timer" parent="."]

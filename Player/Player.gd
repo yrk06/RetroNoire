@@ -25,11 +25,12 @@ func _physics_process(delta):
 	process_movement(mov_direction)
 
 func process_input():
+	
+	mov_direction = Vector2()
 	if not has_control:
 		return
 	## Movement
 	if has_movement:
-		mov_direction = Vector2()
 		if Input.is_action_pressed("walk_up"):
 			mov_direction.y -= 1
 		if Input.is_action_pressed("walk_down"):
@@ -42,6 +43,13 @@ func process_input():
 	## Other Actions
 	if Input.is_action_just_pressed("interact"):
 		interact()
+		
+	if Input.is_action_just_pressed("quick_save"):
+		Game.save_game()
+		
+	if Input.is_action_just_pressed("quick_load"):
+		Game.load_game()
+	
 	
 func process_movement(direction):
 	move_and_slide(direction * speed)
@@ -66,8 +74,6 @@ func interact():
 		
 		
 		
-		
-		
 
 
 func _on_InteractArea_area_entered(area):
@@ -76,7 +82,6 @@ func _on_InteractArea_area_entered(area):
 		Fmod.set_global_parameter_by_name('mx_pista',1)
 	else:
 		Fmod.set_global_parameter_by_name('mx_pista',2)
-	pass
 
 
 func _on_InteractArea_area_exited(area):
@@ -84,7 +89,3 @@ func _on_InteractArea_area_exited(area):
 	if len(remaining) -1 == 0:
 		Fmod.set_global_parameter_by_name('mx_pista',0)
 
-
-
-func _on_DoorArea_body_entered(body):
-	print(body.name)
