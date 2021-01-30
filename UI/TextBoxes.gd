@@ -61,6 +61,7 @@ func reset():
 	disconnect("text_finished",self,"phrase_finished_op")
 	disconnect("text_finished",self,"phrase_finished")
 	disconnect("input_event",self,"reset")
+	disconnect("input_event",self,"reset_player_signals")
 	
 func reset_player_signals():
 	if current_node_info['node'] != null:
@@ -140,6 +141,7 @@ func phrase_finished():
 		
 	else:
 		input_enabled = true
+		connect("input_event",self,'reset_player_signals')
 		connect("input_event",self,'reset')
 
 func _add_letter():
