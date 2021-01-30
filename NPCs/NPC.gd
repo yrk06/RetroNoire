@@ -41,6 +41,7 @@ func _ready():
 func interact():
 	if Type == NPC_Types.IRRELEVANTE:
 		UiInterface.abrir_text_box(dialogs['dialogo Inicial'])
+		return
 	if state['angry']:
 		UiInterface.abrir_text_box(dialogs['recusa'])
 		return
@@ -73,8 +74,8 @@ func handle_response(res):
 				UiInterface.abrir_text_box(dialogs['lie']+dialogs['verdade'])
 			else:
 				state['angry'] = true
-				UiInterface.abrir_text_box(dialogs['lie']+dialogs['recusa'])
-	persistent_reference.update_state(state)
+				UiInterface.abrir_text_box(dialogs['doubt']+dialogs['recusa'])
+	#persistent_reference.update_state(state)
 
 
 
