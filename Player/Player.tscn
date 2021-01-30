@@ -37,6 +37,7 @@ collision_mask = 12
 shape = SubResource( 2 )
 
 [node name="DoorArea" type="Area2D" parent="."]
+visible = false
 input_pickable = false
 collision_layer = 0
 collision_mask = 16
@@ -45,4 +46,3 @@ collision_mask = 16
 shape = SubResource( 3 )
 [connection signal="area_entered" from="InteractArea" to="." method="_on_InteractArea_area_entered"]
 [connection signal="area_exited" from="InteractArea" to="." method="_on_InteractArea_area_exited"]
-[connection signal="body_entered" from="DoorArea" to="." method="_on_DoorArea_body_entered"]
