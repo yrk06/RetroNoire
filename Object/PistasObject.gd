@@ -59,6 +59,8 @@ func save_data():
 	return dict
 	
 func createPistaInstansce():
+	if physical_reference:
+		return
 	var Pista = preload('res://Investigacao/Pista.tscn').instance()
 	#Pista.small_sprite = small_sprite
 	#Pista.big_sprite = big_sprite

@@ -80,6 +80,8 @@ func save_data():
 	return dict
 	
 func createNPCInstansce():
+	if physical_reference:
+		return
 	var NPC = preload('res://NPCs/NPC.tscn').instance()
 	NPC.Type = Type
 	NPC.dialogs = dialogs
