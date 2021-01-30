@@ -59,7 +59,7 @@ func save_data():
 	return dict
 	
 func createPistaInstansce():
-	var Pista = preload('res://investigacao/Pista.tscn').instance()
+	var Pista = preload('res://Investigacao/Pista.tscn').instance()
 	#Pista.small_sprite = small_sprite
 	#Pista.big_sprite = big_sprite
 	Pista.analise = analise
