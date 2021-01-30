@@ -55,7 +55,7 @@ func interact():
 	if len(pistas) > 0:
 		if not pistas[0].get_parent().state['investigada']:
 			Fmod.set_global_parameter_by_name('mx_pista',1)
-			pistas_encontradas.append(pistas[0].get_parent().backend_pista_reference)
+			pistas_encontradas.append(pistas[0].get_parent().persistent_reference)
 		pistas[0].get_parent().interact()
 		return
 		
