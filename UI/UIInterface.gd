@@ -46,4 +46,34 @@ func abrir_text_box(dialogo):
 	PlayerInterface.take_player_control()
 	pass
 
+func display_text(text,holdtime = 1,speed = 1):
+	var text_node = get_node('/root/MainTree/UI/UIControl/ScreenText')
+	text_node.display_text(text,holdtime,speed)
 
+func fadein():
+	var fade_node = get_node('/root/MainTree/UI/UIControl/Fade')
+	fade_node.fadein()
+	return fade_node
+	
+func fadeout():
+	var fade_node = get_node('/root/MainTree/UI/UIControl/Fade')
+	fade_node.fadeout()
+	return fade_node
+	
+func open_map():
+	var map_node = get_node('/root/MainTree/UI/UIControl/Map')
+	map_node.visible = !map_node.visible
+
+func load_map_poi(dict):
+	var map_node = get_node('/root/MainTree/UI/UIControl/Map')
+	map_node.load_POI(dict)
+	
+func map_show_poi(poi):
+	var map_node = get_node('/root/MainTree/UI/UIControl/Map')
+	map_node.show_POI(poi)
+func save_map():
+	var map_node = get_node('/root/MainTree/UI/UIControl/Map')
+	return map_node.save_data()
+func load_map(vpois):
+	var map_node = get_node('/root/MainTree/UI/UIControl/Map')
+	map_node.load_data(vpois)

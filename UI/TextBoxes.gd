@@ -5,6 +5,8 @@ signal text_finished
 signal option_selected(option)
 signal dialog_finished
 signal input_event
+
+signal chatter_finished
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -23,6 +25,8 @@ var current_node_info = {
 	"node": null,
 	"callback": null,
 }
+
+onready var speech_event = Fmod.create_event_instance("event:/fx_npc_loop")
 
 onready var optionMenu = $wOptions/MarginContainer/HBoxContainer/OptionsMenu
 
@@ -56,6 +60,8 @@ func reset():
 	
 	input_enabled = false
 	selection_enabled = false
+	
+	Fmod.stop_event(speech_event,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
 	
 	PlayerInterface.give_player_control()
 	if is_connected("text_finished",self,"phrase_finished_op"):
@@ -165,13 +171,14 @@ func set_text(value):
 	text = value
 
 func speech():
-	var speech_event = Fmod.create_event_instance("event:/fx_npc_loop")
+	
+	
 	
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	Fmod.set_event_timeline_position(speech_event,rng.randi_range(0,20)*1000)
 	Fmod.start_event(speech_event)
 	Fmod.set_event_volume(speech_event,1.5)
-	yield(get_tree().create_timer(1),"timeout")
+	
+	yield(get_tree().create_timer(3),"timeout")
 	Fmod.stop_event(speech_event,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
-	Fmod.release_event(speech_event)
