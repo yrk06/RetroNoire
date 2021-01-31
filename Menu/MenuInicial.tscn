@@ -1,31 +1,54 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/mainMenu/logo.png" type="Texture" id=1]
+[ext_resource path="res://Menu/Opcoes/NovoJogo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Menu/Opcoes/Sair.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menu/Opcoes/Continuar.tscn" type="PackedScene" id=3]
 
 [node name="MenuInicial" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -0.707092
+margin_top = 0.707108
+margin_right = -0.707092
+margin_bottom = 0.707108
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Menu" type="VBoxContainer" parent="."]
-margin_left = 19.2929
+margin_left = 19.0
 margin_top = 20.0
-margin_right = 299.293
-margin_bottom = 160.0
+margin_right = 301.0
+margin_bottom = 157.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="Menu"]
-margin_left = 140.0
-margin_top = 20.0
-margin_right = 140.0
-margin_bottom = 20.0
-rect_scale = Vector2( 0.4, 0.4 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource( 1 )
+margin_right = 282.0
 expand = true
-stretch_mode = 4
+
+[node name="LinhaCentro" type="HBoxContainer" parent="Menu"]
+margin_top = 4.0
+margin_right = 282.0
+margin_bottom = 137.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Opcoes" type="VBoxContainer" parent="Menu/LinhaCentro"]
+margin_right = 282.0
+margin_bottom = 133.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Continuar" parent="Menu/LinhaCentro/Opcoes" instance=ExtResource( 3 )]
+
+[node name="NovoJogo" parent="Menu/LinhaCentro/Opcoes" instance=ExtResource( 1 )]
+margin_top = 24.0
+margin_bottom = 44.0
+
+[node name="Sair" parent="Menu/LinhaCentro/Opcoes" instance=ExtResource( 2 )]
+margin_top = 48.0
+margin_bottom = 68.0
