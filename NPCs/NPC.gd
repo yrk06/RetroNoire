@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-
+signal truth_revealed
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -41,6 +41,7 @@ func _ready():
 func interact():
 	if Type == NPC_Types.IRRELEVANTE:
 		UiInterface.abrir_text_box(dialogs['dialogo Inicial'])
+		return
 	if state['angry']:
 		UiInterface.abrir_text_box(dialogs['recusa'])
 		return
@@ -57,9 +58,11 @@ func handle_response(res):
 			return
 		1: ## Concordar
 			UiInterface.abrir_text_box(dialogs['concordar'])
-			return
-		2: ## Mentir
+			if Type == NPC_Types.BOM:
+				emit_signal("truth_revealed")
+		2: ## Duvida
 			if Type == NPC_Types.NEUTRO:
+				emit_signal("truth_revealed")
 				state['defeated'] = true
 				UiInterface.abrir_text_box(dialogs['doubt']+dialogs['verdade'])
 			else:
@@ -67,14 +70,17 @@ func handle_response(res):
 				
 				UiInterface.abrir_text_box(dialogs['doubt']+dialogs['recusa'])
 			
-		3: ## Até mais
+		3: ## Mentir
 			if Type == NPC_Types.MAU:
+				emit_signal("truth_revealed")
 				state['defeated'] = true
 				UiInterface.abrir_text_box(dialogs['lie']+dialogs['verdade'])
 			else:
 				state['angry'] = true
 				UiInterface.abrir_text_box(dialogs['lie']+dialogs['recusa'])
-	persistent_reference.update_state(state)
+	#persistent_reference.update_state(state)
 
-
+func set_frames(pack,variant):
+	$AnimatedSprite.frames = pack
+	$AnimatedSprite.animation = variant
 

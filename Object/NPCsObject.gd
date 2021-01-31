@@ -38,6 +38,7 @@ var location = {
 var name
 
 var spriteFrames
+var spriteVariation
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,6 +51,7 @@ func set_data(dict):
 	state = dict["state"]
 	name = dict["name"]
 	spriteFrames = dict["spriteFrames"]
+	spriteVariation = dict["variation"]
 	location = {
 		"path": dict["location"]["path"],
 		'location':Vector2(dict["location"]['x'],dict["location"]['y'])
@@ -72,6 +74,7 @@ func save_data():
 	dict["state"] = state
 	dict["name"] = name
 	dict["spriteFrames"] = spriteFrames
+	dict["variation"] = spriteVariation
 	dict["location"] = {
 		"path": location["path"],
 		"x": location["location"].x,
@@ -80,6 +83,8 @@ func save_data():
 	return dict
 	
 func createNPCInstansce():
+	if physical_reference:
+		return
 	var NPC = preload('res://NPCs/NPC.tscn').instance()
 	NPC.Type = Type
 	NPC.dialogs = dialogs
@@ -88,5 +93,7 @@ func createNPCInstansce():
 	NPC.name = name
 	NPC.persistent_reference = self
 	NPC.location = location['location']
+	var sprite = load('res://assets/art/Sprites/'+('Male_NPCs.tres' if spriteFrames == 1 else 'Female_NPCs.tres'))
+	NPC.set_frames(sprite,spriteVariation)
 	physical_reference = NPC
 	return NPC

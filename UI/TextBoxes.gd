@@ -5,6 +5,8 @@ signal text_finished
 signal option_selected(option)
 signal dialog_finished
 signal input_event
+
+signal chatter_finished
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -23,6 +25,8 @@ var current_node_info = {
 	"node": null,
 	"callback": null,
 }
+
+onready var speech_event = Fmod.create_event_instance("event:/fx_npc_loop")
 
 onready var optionMenu = $wOptions/MarginContainer/HBoxContainer/OptionsMenu
 
@@ -57,11 +61,17 @@ func reset():
 	input_enabled = false
 	selection_enabled = false
 	
+	Fmod.stop_event(speech_event,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
+	
 	PlayerInterface.give_player_control()
-	disconnect("text_finished",self,"phrase_finished_op")
-	disconnect("text_finished",self,"phrase_finished")
-	disconnect("input_event",self,"reset")
-	disconnect("input_event",self,"reset_player_signals")
+	if is_connected("text_finished",self,"phrase_finished_op"):
+		disconnect("text_finished",self,"phrase_finished_op")
+	if is_connected("text_finished",self,"phrase_finished"):
+		disconnect("text_finished",self,"phrase_finished")
+	if is_connected("input_event",self,"reset"):
+		disconnect("input_event",self,"reset")
+	if is_connected("input_event",self,"reset_player_signals"):
+		disconnect("input_event",self,"reset_player_signals")
 	
 func reset_player_signals():
 	if current_node_info['node'] != null:
@@ -81,6 +91,7 @@ func wOptions(dialog,option,node,callback):
 	current_node_info['callback'] = callback
 	connect("text_finished",self,"phrase_finished_op")
 	$Timer.start()
+	speech()
 
 func classic(dialog):
 	$Normal.visible = true
@@ -89,17 +100,14 @@ func classic(dialog):
 	currentLetterIndex = 0
 	connect("text_finished",self,"phrase_finished")
 	$Timer.start()
+	speech()
 
 func phrase_finished_op():
 	if currentPhraseIndex < len(current_dialog)-1:
 		currentPhraseIndex += 1
 		currentLetterIndex = 0
 		input_enabled = true
-		connect("input_event",$Timer,'start')
-		connect("input_event",self,'disconnect',["input_event",$Timer,"start"])
-		
-		connect("input_event",self,'set_text',[''])
-		connect("input_event",self,'disable_inputs')
+		connect("input_event",self,'phrase_finished_handler')
 		
 	else:
 		enable_options()
@@ -133,16 +141,20 @@ func phrase_finished():
 		currentPhraseIndex += 1
 		currentLetterIndex = 0
 		input_enabled = true
-		connect("input_event",$Timer,'start')
-		connect("input_event",self,'disconnect',["input_event",$Timer,"start"])
-		
-		connect("input_event",self,'set_text',[''])
-		connect("input_event",self,'disable_inputs')
+		connect("input_event",self,'phrase_finished_handler')
 		
 	else:
 		input_enabled = true
 		connect("input_event",self,'reset_player_signals')
 		connect("input_event",self,'reset')
+
+func phrase_finished_handler():
+	disconnect("input_event",self,"phrase_finished_handler")
+	set_text('')
+	disable_inputs()
+	$Timer.start()
+	speech()
+	
 
 func _add_letter():
 	if currentLetterIndex >= len(current_dialog[currentPhraseIndex]):
@@ -157,3 +169,16 @@ func set_text(value):
 	$wOptions/MarginContainer/HBoxContainer/Text.text = value
 	$Normal/MarginContainer/Label.text = value
 	text = value
+
+func speech():
+	
+	
+	
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	Fmod.set_event_timeline_position(speech_event,rng.randi_range(0,20)*1000)
+	Fmod.start_event(speech_event)
+	Fmod.set_event_volume(speech_event,1.5)
+	
+	yield(get_tree().create_timer(3),"timeout")
+	Fmod.stop_event(speech_event,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)

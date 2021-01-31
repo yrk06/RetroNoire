@@ -27,15 +27,15 @@ _global_script_class_icons={
 [application]
 
 config/name="RetroNoire"
-run/main_scene="res://Menu/MenuInicial.tscn"
+run/main_scene="res://testScenes/TestEnv.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Fmod="*res://addons/fmod/Fmod.gd"
 UiInterface="*res://UI/UIInterface.gd"
 PlayerInterface="*res://Player/PlayerInterface.gd"
 Game="*res://Game.gd"
+Fmod="*res://addons/fmod/Fmod.gd"
 
 [display]
 
@@ -88,6 +88,21 @@ interact={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+quick_save={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777249,"unicode":0,"echo":false,"script":null)
+ ]
+}
+quick_load={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777250,"unicode":0,"echo":false,"script":null)
+ ]
+}
+open_map={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":77,"unicode":0,"echo":false,"script":null)
  ]
 }
 
