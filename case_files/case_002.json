@@ -106,5 +106,61 @@
 			},
 			"npcs":["Mau","Neutro"]
 		}
+	],
+	"POI":[
+		{
+		"location":{
+			"x":128,
+			"y":128,
+			},
+		"text":"Praça Central"
+		},
+		{
+		"location":{
+			"x":128,
+			"y":256,
+			},
+		"text":"Casa do suspeito"
+		},
+	
+	],
+	"LogicRelay":[
+		{
+		"name":"lr_praça",
+		"signals":[
+			["../Neutro","truth_revealed"]
+		],
+		"triggers":[
+			["UI","map_show_poi","Praça Central"]
+		],
+		"location":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+		"once": true,
+		"enabled":true
+		},
+		{
+		"name":"lr_casa_sus",
+		"signals":[
+			["../Mau","truth_revealed"]
+		],
+		"triggers":[
+			["UI","map_show_poi","Casa do suspeito"]
+		],
+		"location":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+		"once": true,
+		"enabled":true
+		}
+	
+	],
+	"mx_areas":[
+		{
+		"name":"Praça Central",
+		"location":{
+		"location":"/root/MainTree/Interior/Apartamento_1",
+		"x":0,
+		"y":0
+		},
+		"radius":128
+		}
+		
 	]
 }
