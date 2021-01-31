@@ -94,8 +94,7 @@ position = Vector2( 16, -32 )
 shape = SubResource( 9 )
 
 [node name="Door" parent="." instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 88, 8 )
+position = Vector2( 24, 56 )
 to_interior = true
 interior_node_name = "Interior_Condominio_1"
 local_position_entry = Vector2( 88, -48 )

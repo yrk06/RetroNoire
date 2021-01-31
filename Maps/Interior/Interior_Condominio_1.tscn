@@ -60,7 +60,7 @@ visible = false
 position = Vector2( 88, -56 )
 to_interior = true
 interior_node_name = "Apartamento_1"
-local_position_entry = Vector2( 72, 8 )
+local_position_entry = Vector2( 24, 40 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )

@@ -1,6 +1,6 @@
 extends Button
 
-export(String) var scene_to_load
+export(String) var function_to_call
 
-func _on_Button_pressed():
-	get_tree().change_scene('res://Menu/Casos.tscn')
+func _on_pressed():
+	Game.call(function_to_call)

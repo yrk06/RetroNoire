@@ -6,3 +6,4 @@
 layer = 128
 
 [node name="UIControl" parent="." instance=ExtResource( 1 )]
+mouse_default_cursor_shape = 0

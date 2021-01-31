@@ -19,11 +19,11 @@ var mainWorld = preload("res://Maps/WorldMap.tscn")
 var LogicRelay = preload("res://addons/LogicConectors/LogicRelay.gd")
 
 var mx_gameplay
+var mx_menu
+var bg_noite
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	print(get_file_paths_in_folder('res://assets/testAssets/'))
-	load_case_file(current_case_name)
+	#load_case_file(current_case_name)
 	##Sound Listener
 	
 	var listener = Node2D.new()
@@ -39,11 +39,15 @@ func _ready():
 	
 	## Tocar os eventos
 	mx_gameplay = Fmod.create_event_instance("event:/mx_gameplay_dynamic")
-	#Fmod.start_event(mx_gameplay)
-	Fmod.set_event_volume(mx_gameplay,0.5)
+	mx_menu = Fmod.create_event_instance("event:/mx_menu_dynamic")
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var value = rng.randf_range(0,1)
+	Fmod.set_global_parameter_by_name("mx_tension",value)
+	Fmod.start_event(mx_menu)
+	Fmod.set_event_volume(mx_menu,0.4)
 	
-	var bg_noite = Fmod.create_event_instance("event:/bg_noite") 
-	Fmod.start_event(bg_noite)
+	bg_noite = Fmod.create_event_instance("event:/bg_noite") 
 
 func enter_door(door):
 	## we need to load interior?
@@ -106,7 +110,26 @@ func load_case_file(case_name):
 	jsonString = file.get_as_text()
 	file.close()
 	
+	for c in get_node('/root/MainTree/WorldMapNode').get_children():
+		c.queue_free()
+		yield(c,'tree_exited')
+		
+	for c in get_node('/root/MainTree/Interior').get_children():
+		c.queue_free()
+		yield(c,'tree_exited')
+	
 	var content = JSON.parse(jsonString).result
+	
+	var mapname = content['start_info']["map"]
+	if mapname == "WorldMap":
+		var holder = get_node('/root/MainTree/WorldMapNode')
+		holder.add_child(mainWorld.instance())
+	else:
+		var holder = get_node('/root/MainTree/Interior')
+		var interior = load("res://Maps/Interior/"+mapname+".tscn").instance()
+		holder.add_child(interior)
+	
+	
 	var npcs = content["NPCs"]
 	for p in npcs:
 		instantiate_npc(load_npc(p))
@@ -124,6 +147,8 @@ func load_case_file(case_name):
 	for p in mx_areas:
 		case_mx_areas.append(p)
 		load_mx_gameplay_area(p)
+	get_node("/root/MainTree").add_child(preload("res://Player/Player.tscn").instance())
+	get_node("/root/MainTree/Player").position = Vector2(content['start_info']['x'],content['start_info']['y'])
 
 func load_non_persisten_data_case_file(case_name):
 	var jsonString
@@ -242,10 +267,27 @@ func save_game():
 	save_game.close()
 	
 func load_game():
+	Fmod.stop_event(mx_menu,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
+	var save_game = File.new()
+	save_game.open("user://savegame.save", File.READ)
+	var jsonSave = save_game.get_as_text()
+	if not jsonSave:
+		return
+	save_game.close()
+	var saved_dict = JSON.parse(jsonSave).result
+	
+	
 	yield(UiInterface.fadein(),'fade_finished')
+	
 	for c in get_node('/root/MainTree/WorldMapNode').get_children():
 		c.queue_free()
 		yield(c,'tree_exited')
+		
+	var player = get_node('/root/MainTree/Player')
+	if player:
+		player.queue_free()
+		yield(player,"tree_exited")
+
 		
 	for c in get_node('/root/MainTree/Interior').get_children():
 		c.queue_free()
@@ -256,11 +298,8 @@ func load_game():
 	case_logic_relay = []
 	case_mx_areas = []
 	
-	var save_game = File.new()
-	save_game.open("user://savegame.save", File.READ)
-	var jsonSave = save_game.get_as_text()
-	save_game.close()
-	var saved_dict = JSON.parse(jsonSave).result
+	get_node("/root/MainTree").add_child(preload("res://Player/Player.tscn").instance())
+	
 	
 	##Load Location
 	var mapname = saved_dict['location']["map"]
@@ -290,9 +329,10 @@ func load_game():
 	UiInterface.load_map(saved_dict["map_poi"])
 	
 	load_non_persisten_data_case_file(current_case_name)
+	UiInterface.close_menu()
 	UiInterface.fadeout()
 	
-func get_file_paths_in_folder(folder_path: String) -> Array:
+func get_files_in_folder(folder_path: String) -> Array:
 	
 	var file_paths := []
 	
@@ -304,8 +344,19 @@ func get_file_paths_in_folder(folder_path: String) -> Array:
 		var file := dir.get_next()
 		if file == "":
 			break
-		file_paths.append(folder_path + file)
+		file_paths.append(file)
 
 	dir.list_dir_end()
 	
 	return file_paths
+
+func quit():
+	get_tree().quit()
+
+func load_case_menu():
+	UiInterface.close_menu()
+	UiInterface.open_cases_menu()
+	
+func new_game(case):
+	UiInterface.close_case_menu()
+	load_case_file(case)

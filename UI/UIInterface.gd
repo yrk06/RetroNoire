@@ -77,3 +77,19 @@ func save_map():
 func load_map(vpois):
 	var map_node = get_node('/root/MainTree/UI/UIControl/Map')
 	map_node.load_data(vpois)
+
+func close_menu():
+	var menu = get_node('/root/MainTree/UI/UIControl/MenuInicial')
+	menu.visible = false
+	
+func open_menu():
+	var menu = get_node('/root/MainTree/UI/UIControl/MenuInicial')
+	menu.visible = true
+
+func open_cases_menu():
+	var case = get_node('/root/MainTree/UI/UIControl/Menucasos')
+	case.visible = true
+	
+func close_case_menu():
+	var case = get_node('/root/MainTree/UI/UIControl/Menucasos')
+	case.visible = false
