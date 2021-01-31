@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/dogicapixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Menu/Opcoes/Sair.tscn" type="PackedScene" id=2]
@@ -14,6 +14,13 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=2]
 size = 14
 font_data = ExtResource( 1 )
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Button
+
+func _on_NovoJogo_pressed():
+	get_tree().change_scene('res://Menu/Casos.tscn')
+"
 
 [sub_resource type="DynamicFont" id=3]
 size = 14
@@ -90,7 +97,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
 text = "Novo jogo"
-script = null
+script = SubResource( 5 )
 
 [node name="Sair" parent="Menu/LinhaCentro/Opcoes" instance=ExtResource( 2 )]
 margin_top = 50.0
@@ -119,3 +126,4 @@ percent_visible = 0.0
 
 [node name="FadeIn" parent="." instance=ExtResource( 6 )]
 visible = false
+[connection signal="pressed" from="Menu/LinhaCentro/Opcoes/NovoJogo" to="Menu/LinhaCentro/Opcoes/NovoJogo" method="_on_NovoJogo_pressed"]
