@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/Analise.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/TextBoxes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/ScreenText.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Fade.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/Map.tscn" type="PackedScene" id=5]
 
 [node name="UIControl" type="Control"]
 anchor_right = 1.0
@@ -15,3 +18,10 @@ visible = false
 
 [node name="TextBoxes" parent="." instance=ExtResource( 2 )]
 visible = false
+
+[node name="Map" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="Fade" parent="." instance=ExtResource( 4 )]
+
+[node name="ScreenText" parent="." instance=ExtResource( 3 )]

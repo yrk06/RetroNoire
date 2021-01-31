@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-
+signal truth_revealed
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -58,9 +58,11 @@ func handle_response(res):
 			return
 		1: ## Concordar
 			UiInterface.abrir_text_box(dialogs['concordar'])
-			return
+			if Type == NPC_Types.BOM:
+				emit_signal("truth_revealed")
 		2: ## Duvida
 			if Type == NPC_Types.NEUTRO:
+				emit_signal("truth_revealed")
 				state['defeated'] = true
 				UiInterface.abrir_text_box(dialogs['doubt']+dialogs['verdade'])
 			else:
@@ -70,6 +72,7 @@ func handle_response(res):
 			
 		3: ## Mentir
 			if Type == NPC_Types.MAU:
+				emit_signal("truth_revealed")
 				state['defeated'] = true
 				UiInterface.abrir_text_box(dialogs['lie']+dialogs['verdade'])
 			else:

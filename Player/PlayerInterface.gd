@@ -22,3 +22,6 @@ func take_player_control():
 	
 func give_player_control():
 	get_node('/root/MainTree/Player').has_control = true
+
+func get_player():
+	return get_node('/root/MainTree/Player')

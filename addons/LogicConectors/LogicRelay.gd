@@ -14,11 +14,13 @@ export (Array,Array) var triggers setget set_triggers
 ##If you only want to trigger it once
 export var once = false
 
+var persistent_reference = null
+
 ##If you need to use Global Paths, set them here
 export var reserved_words = {
-	'player': '/root/Game/Player',
-	'txtbox': '/root/Game/CanvasLayer/TextBox',
-	'self': '.',
+	"Game": "/root/Game",
+	"UI": "/root/UiInterface", 
+	"Player": "/root/PlayerInterface",
 }
 
 ##If you would like to save the state of the Relay
@@ -41,6 +43,11 @@ func set_signals(value):
 
 ## The ready funtion is used to connect all signals
 func _ready():
+	if not enabled: 
+		return
+	setup()
+
+func setup():
 	for sp in signals:
 		var tnode
 		if not reserved_words.has(sp[0]):
@@ -55,7 +62,7 @@ func _ready():
 		var pl_triggers = triggers
 		triggers = []
 		adjust_trigger_self(pl_triggers)
-	pass # Replace with function body.
+	
 
 ## This function goes through all Triggers and call all functions
 func trigger():
@@ -64,6 +71,8 @@ func trigger():
 		return
 	if once:
 		enabled = false
+		Game.delete_logic_relay(persistent_reference)
+		queue_free()
 	for p in triggers:
 		var target = get_node(p[0])
 		if not target:
@@ -124,6 +133,7 @@ func adjust_trigger_self(tta):
 ##Set Enable
 func set_enabled(value):
 	enabled = value
+	setup()
 
 ## If you are using your own save functions, feel free to modify these ones
 ## Below

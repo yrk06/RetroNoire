@@ -48,11 +48,16 @@ func process_input():
 	if Input.is_action_just_pressed("interact"):
 		interact()
 		
+	if Input.is_action_just_pressed("open_map"):
+		UiInterface.open_map()
+		
 	if Input.is_action_just_pressed("quick_save"):
 		Game.save_game()
+		UiInterface.display_text("saved",0.5,2)
 		
 	if Input.is_action_just_pressed("quick_load"):
 		Game.load_game()
+		UiInterface.display_text("loaded",0.5,2)
 	
 	if mov_direction != Vector2():
 		last_mov = mov_direction
@@ -73,7 +78,7 @@ func interact():
 			var value = rng.randi_range(0,2)
 			Fmod.set_global_parameter_by_name("fx_pista_sound",value)
 			var sound = Fmod.create_event_instance("event:/fx_pista_achada")
-			Fmod.set_event_volume(sound,0.5)
+			Fmod.set_event_volume(sound,0.25)
 			Fmod.start_event(sound)
 			Fmod.release_event(sound)
 			
