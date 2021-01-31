@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/dogicapixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Menu/Opcoes/BotaoMenu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[node name="BotaoMenu" type="Button"]
+margin_right = 80.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 80, 60 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -41.0
+margin_top = -2.0
+margin_right = 279.0
+margin_bottom = -35.0
+rect_min_size = Vector2( 320, 25 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Label"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
