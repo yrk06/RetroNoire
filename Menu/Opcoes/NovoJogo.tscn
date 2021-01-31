@@ -5,4 +5,4 @@
 [node name="NovoJogo" instance=ExtResource( 1 )]
 
 [node name="Label" parent="." index="0"]
-text = "Novo jogo"
+text = ""
