@@ -1,10 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/dogicapixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Menu/Opcoes/Sair.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menu/Opcoes/Continuar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/mainMenu/logo.png" type="Texture" id=4]
 [ext_resource path="res://Menu/Opcoes/NovoJogo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Menu/FadeIn/FadeIn.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 14
@@ -15,10 +20,6 @@ size = 14
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 14
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=1]
 size = 8
 font_data = ExtResource( 1 )
 
@@ -74,24 +75,33 @@ margin_top = 6.0
 margin_right = 361.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 0, 0 )
-custom_fonts/font = SubResource( 2 )
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
 text = "Continuar"
+script = null
 
 [node name="NovoJogo" parent="Menu/LinhaCentro/Opcoes" instance=ExtResource( 5 )]
 margin_top = 28.0
 margin_right = 361.0
 margin_bottom = 46.0
 rect_min_size = Vector2( 0, 0 )
-custom_fonts/font = SubResource( 3 )
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
 text = "Novo jogo"
+script = null
 
 [node name="Sair" parent="Menu/LinhaCentro/Opcoes" instance=ExtResource( 2 )]
 margin_top = 50.0
 margin_right = 361.0
 margin_bottom = 68.0
 rect_min_size = Vector2( 0, 0 )
-custom_fonts/font = SubResource( 4 )
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 3 )
 text = "Sair"
+script = null
 
 [node name="Equipe" type="Label" parent="Menu"]
 margin_top = 157.0
@@ -99,10 +109,13 @@ margin_right = 361.0
 margin_bottom = 163.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.984314, 0.8, 0.8, 1 )
 custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 text = "RetroNeers"
 align = 1
 valign = 1
 percent_visible = 0.0
+
+[node name="FadeIn" parent="." instance=ExtResource( 6 )]
+visible = false

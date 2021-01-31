@@ -3,6 +3,7 @@
 [ext_resource path="res://Menu/Opcoes/BotaoMenu.tscn" type="PackedScene" id=1]
 
 [node name="NovoJogo" instance=ExtResource( 1 )]
+scene_to_load = "res://Game.tscn"
 
 [node name="Label" parent="." index="0"]
 text = ""

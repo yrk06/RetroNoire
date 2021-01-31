@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/fonts/dogicapixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Menu/Opcoes/BotaoMenu.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -9,7 +10,10 @@ font_data = ExtResource( 1 )
 margin_right = 80.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 80, 60 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 flat = true
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
