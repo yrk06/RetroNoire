@@ -3,8 +3,18 @@ extends Control
 var cases = []
 
 func _ready():
+	search_cases()
+
+func search_cases():
+	cases = []
+	var ic = $CenterContainer/VBoxContainer/ItemList.get_item_count()
+	for p in range(ic):
+		$CenterContainer/VBoxContainer/ItemList.remove_item(p)
 	for p in Game.get_files_in_folder("res://case_files"):
 		if 'ignore' in p:
+			continue
+		print(p)
+		if not TranslationServer.get_locale() in p:
 			continue
 		if '.json' in p:
 			var jsonString
@@ -18,6 +28,8 @@ func _ready():
 			
 	for p in Game.get_files_in_folder("user://case_files"):
 		if 'ignore' in p:
+			continue
+		if not TranslationServer.get_locale() in p:
 			continue
 		if '.json' in p:
 				var jsonString
@@ -34,8 +46,6 @@ func _ready():
 func _on_Button_pressed():
 	visible = false
 	UiInterface.open_menu()
-
-
 
 
 func _on_ItemList_item_selected(index):

@@ -4,7 +4,7 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var map_center = Vector2(32,-38.02)
+var map_center = Vector2(-10,5.0)
 
 var pois = []
 # Called when the node enters the scene tree for the first time.
@@ -18,10 +18,13 @@ func _process(delta):
 		return
 	if Input.is_action_just_pressed("ui_accept"):
 		visible = false
-	convert_player_position(PlayerInterface.get_player().global_position)
+	convert_player_position(PlayerInterface.get_player_outside_position())
 
 func convert_player_position(p_pos):
-	var start_pos = -p_pos * 128/512
+	var start_pos = -p_pos
+	start_pos.x *= 170/1027.0
+	start_pos.y *= 43/256.0
+	print(start_pos)
 	$MapTexture.rect_position = map_center + start_pos
 
 func load_POI(dict):
@@ -39,7 +42,7 @@ func show_POI(poi_name):
 	for p in pois:
 		if p["text"] == poi_name:
 			p['visible'] = true
-	UiInterface.display_text(poi_name + " is now on the map")
+	UiInterface.display_text(poi_name + " "+tr("GAME_MAPA"))
 
 func save_data():
 	return pois

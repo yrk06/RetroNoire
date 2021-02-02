@@ -25,7 +25,7 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.231373, 0.231373, 0.231373, 1 )
 
 [node name="NovoJogo" instance=ExtResource( 1 )]
@@ -43,7 +43,7 @@ margin_bottom = 157.0
 [node name="Label" parent="CenterContainer/VBoxContainer" index="0"]
 margin_right = 300.0
 custom_fonts/font = SubResource( 1 )
-text = "Selecionar caso"
+text = "MENU_CASO_TITLE"
 align = 1
 script = SubResource( 2 )
 
@@ -52,12 +52,12 @@ margin_top = 16.0
 margin_right = 300.0
 margin_bottom = 112.0
 rect_min_size = Vector2( 300, 96 )
-custom_styles/cursor = SubResource( 5 )
-custom_styles/selected_focus = SubResource( 5 )
-custom_styles/bg_focus = SubResource( 5 )
-custom_styles/cursor_unfocused = SubResource( 5 )
-custom_styles/selected = SubResource( 5 )
-custom_styles/bg = SubResource( 5 )
+custom_styles/cursor = SubResource( 3 )
+custom_styles/selected_focus = SubResource( 3 )
+custom_styles/bg_focus = SubResource( 3 )
+custom_styles/cursor_unfocused = SubResource( 3 )
+custom_styles/selected = SubResource( 3 )
+custom_styles/bg = SubResource( 3 )
 custom_fonts/font = SubResource( 1 )
 max_text_lines = 4
 max_columns = 3
@@ -68,5 +68,6 @@ margin_top = 116.0
 margin_right = 300.0
 margin_bottom = 134.0
 custom_fonts/font = SubResource( 1 )
+text = "MENU_VOLTAR"
 [connection signal="hide" from="CenterContainer/VBoxContainer/Label" to="." method="_on_Label_hide"]
 [connection signal="item_selected" from="CenterContainer/VBoxContainer/ItemList" to="." method="_on_ItemList_item_selected"]

@@ -1,0 +1,505 @@
+{
+	"case_name":"Frederico Vilas",
+	"start_info":{
+		"x":-40,
+		"y":-56,
+		"map":"Hotel_room_1"
+	},
+	"villain":"Jack",
+	"NPCs":[
+		{
+			"name": "Frederico's Brother",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["Goodnight Detective","I'm looking for help, my Brother was murdered a few days ago, no investigation is moving forward.","I need the murderer behind locked bars and I am sure you are capable of it","Besides that, your new in town so a couple tips: use Z to walk out doors. And when you find the suspect, press B to arrest them","You can use F6 to save your game and F7 to load","Press M to see your map and find your way to the Crime Scene"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"11",
+			"location":{
+				"path":"/root/MainTree/Interior/Hotel_room_1",
+				"x": 24,
+				"y": -56
+			}
+		},
+		{
+			"name": "Landlord",
+			"Type": 3,
+			"dialogs": {
+				"dialogo Inicial": ["This guy, Frederico, he was a boaster, always partying until late, he never cared for nobody","I'm sure that the murderes walked through the door, I heard some steps by the night"],
+				"later": ["I'm avaliable"],
+				"concordar": ["You can count with my information"],
+				"doubt": ["I was trying to help you, but you're doubting me"],
+				"recusa":["..."],
+				"verdade":["Maybe I didn't hear the glass breaking"],
+				"lie":["I was telling you what I heard"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"09",
+			"location":{
+				"path":"/root/MainTree/Interior/Interior_Condominio_1",
+				"x": 48,
+				"y": -48
+			}
+		},
+		{
+			"name": "neighbour",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["I think Lucas killed Frederico, maybe they didn't get along so well, who knows about what their business were about"],
+				"later": ["Don't take too long, I'm afraid of his fellows"],
+				"concordar": ["Bring us peace"],
+				"lie": ["I didn't told you I was sure"],
+				"recusa":["I will stop talking, I don't want to be the next target"],
+				"doubt":["Thinking again, I don't think it was Lucas, they had differences but they always find to work it out. Besides"],
+				"verdade":["Lucas didn't had a wrench at home"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"12",
+			"location":{
+				"path":"/root/MainTree/Interior/Interior_Condominio_1",
+				"x": -24,
+				"y": -48
+			}
+		},
+		{
+			"name": "Baker",
+			"Type": 1,
+			"dialogs": {
+				"dialogo Inicial": ["I saw someone running to the left, through the alley. They looked like someone who were in trouble, running that fast"],
+				"later": ["See you later"],
+				"concordar": ["You're right"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"06",
+			"location":{
+				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"x": -112,
+				"y": -64
+			}
+		},
+		{
+			"name": "Chief",
+			"Type": 1,
+			"dialogs": {
+				"dialogo Inicial": ["The only employee that didn't come to work since the crime was Jack. He always had a doubtful character"],
+				"later": ["Take your time"],
+				"concordar": ["Of course"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"12",
+			"location":{
+				"path":"/root/MainTree/Interior/Garagem_interno",
+				"x": -32,
+				"y": 32
+			}
+		},
+		{
+			"name": "Employee 1",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["Do you know Jack?","He is always with his jacket, I never saw his jacket with any kind of damage"],
+				"later": ["I'm avaliable"],
+				"concordar": ["Alright"],
+				"doubt":["Let me see this jacket"],
+				"verdade":["Ohhh, this jacket in the closet isn't his, Bob owns it, and he is traveling with an F1 team for a while now"],
+				"lie":["Do you think that I don't know my fellows?"],
+				"recusa":["I don't know anything else"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"13",
+			"location":{
+				"path":"/root/MainTree/Interior/Garagem_interno",
+				"x": 96,
+				"y": 32
+			}
+		},
+		{
+			"name": "Employee 2",
+			"Type": 3,
+			"dialogs": {
+				"dialogo Inicial": ["Jack is traveling, it's been some days. Looks like he had some family stuff to deal with"],
+				"later": ["I will be here"],
+				"concordar": ["That's good"],
+				"lie":["So..."],
+				"verdade":["Jack is not traveling, but he asked us to say that he nedeed sometime to get things straight"],
+				"doubt":["I told you exactly what he said to me"],
+				"recusa":["By now, you can ask to him"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"14",
+			"location":{
+				"path":"/root/MainTree/Interior/Garagem_interno",
+				"x": 146,
+				"y": -24
+			}
+		},
+		{
+			"name": "Employee 3",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["The empoyees closets are back there"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"13",
+			"location":{
+				"path":"/root/MainTree/Interior/Garagem_interno",
+				"x": 32,
+				"y": 64
+			}
+		},
+		{
+			"name": "neighbour 2",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": [" I think some people came here before the crime, maybe a neighbour may have talked to him, but it's unlikely"],
+				"later": ["Don't take too long"],
+				"concordar": ["Adorable"],
+				"doubt":["Make sense"],
+				"verdade":["It's true, a man who owns some apartments knocked here to ask for sugar"],
+				"lie":["If i was you, I would trust me"],
+				"recusa":["hmph"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"06",
+			"location":{
+				"path":"/root/MainTree/Interior/predio_jack_interior_1",
+				"x": 48,
+				"y": -20
+			}
+		},
+		{
+			"name": "Jack's Sister",
+			"Type": 3,
+			"dialogs": {
+				"dialogo Inicial": ["Jack is a little bit disabled these days, he is not getting out from home, we had some trouble is our family e this impacted him a lot"],
+				"later": ["humph"],
+				"concordar": ["I'm glad you understand"],
+				"lie":["I didn't want to mean this..."],
+				"verdade":["Jack get out from the house sometimes, when he got business to deal with"],
+				"doubt":["I know my brother"],
+				"recusa":["Get out of here"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"01",
+			"location":{
+				"path":"/root/MainTree/Interior/predio_jack_interior_2",
+				"x": -32,
+				"y": 32
+			}
+		},
+		{
+			"name": "LandIord",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["How is ths investigation going?"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"03",
+			"location":{
+				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"x": -912,
+				"y": -200
+			}
+		},
+		{
+			"name": "Jack",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["What do you want from me?"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"08",
+			"location":{
+				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"x": -880,
+				"y": -200
+			}
+		}
+		
+	],
+	"Pistas":[
+		{
+			"analise":"The window is broken",
+			"state":{
+				"investigada":false
+			},
+			"name":"janela_ap_01",
+			"location":{
+				"path":"/root/MainTree/Interior/Apartamento_1",
+				"x": 0,
+				"y": -16
+			},
+			"npcs":["Landlord"],
+			"sprite":"Vidro"
+		},
+		{
+			"analise":"A wrench, the crimes's weapon",
+			"state":{
+				"investigada":false
+			},
+			"name":"chave_ing_0",
+			"location":{
+				"path":"/root/MainTree/Interior/Apartamento_1",
+				"x": -72,
+				"y": 0
+			},
+			"npcs":["neighbour"],
+			"sprite":"Chave_Inglesa"
+		},
+		{
+			"analise":"Part of mechanic jumpsuit, it has a logo",
+			"state":{
+				"investigada":false
+			},
+			"name":"macacão",
+			"location":{
+				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"x": -88,
+				"y": -112
+			},
+			"npcs":[],
+			"sprite":"Rasgo_de_jaqueta"
+		},
+		{
+			"analise":"ID and Jack's address",
+			"state":{
+				"investigada":false
+			},
+			"name":"Identidade",
+			"location":{
+				"path":"/root/MainTree/Interior/Garagem_interno",
+				"x": 24,
+				"y": -52
+			},
+			"npcs":["Employee 2"],
+			"sprite":"Documento"
+		},
+		{
+			"analise":"Jumpsuit with a ripped part",
+			"state":{
+				"investigada":false
+			},
+			"name":"jaqueta",
+			"location":{
+				"path":"/root/MainTree/Interior/Garagem_interno",
+				"x": -56,
+				"y": -44
+			},
+			"npcs":["Employee 1"],
+			"sprite":"Rasgo_de_jaqueta"
+		},
+		{
+			"analise":"Lots of recipts from a cafeteria",
+			"state":{
+				"investigada":false
+			},
+			"name":"notas",
+			"location":{
+				"path":"/root/MainTree/Interior/predio_jack_interior_2",
+				"x": 0,
+				"y": 36
+			},
+			"npcs":["Jack's Sister"],
+			"sprite":"Documento"
+		},
+		{
+			"analise":"Dirty tea mugs, someone else was here",
+			"state":{
+				"investigada":false
+			},
+			"name":"xicaras",
+			"location":{
+				"path":"/root/MainTree/Interior/predio_jack_interior_2",
+				"x": -28,
+				"y": -44
+			},
+			"npcs":["neighbour 2"],
+			"sprite":"Xicaras"
+		},
+	],
+	"POI":[
+		{
+		"location":{
+			"x":175,
+			"y":71,
+			},
+		"text":"Crime Scene",
+		"visible": true
+		},
+		{
+		"location":{
+			"x":135,
+			"y":35,
+			},
+		"text":"Garage"
+		},
+		{
+		"location":{
+			"x":214,
+			"y":42,
+			},
+		"text":"Jack's House"
+		},
+		{
+		"location":{
+			"x":36,
+			"y":44,
+			},
+		"text":"Cafeteria"
+		}
+	],
+	"LogicRelay":[
+		{
+			"name":"lr_mecanica",
+			"signals":[
+				["../macacão","pista_pega"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Garage"]
+			],
+			"location":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+			"once": true,
+			"enabled":true
+		},
+		{
+			"name":"lr_jack",
+			"signals":[
+				["../Identidade","pista_pega"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Jack's House"]
+			],
+			"location":"/root/MainTree/Interior/Garagem_interno",
+			"once": true,
+			"enabled":true
+		},
+		{
+			"name":"lr_cafe",
+			"signals":[
+				["../notas","pista_pega"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Cafeteria"]
+			],
+			"location":"/root/MainTree/Interior/predio_jack_interior_2",
+			"once": true,
+			"enabled":true
+		}
+	],
+	"mx_areas":[
+		{
+		"name":"Apartamento_1",
+		"location":{
+		"location":"/root/MainTree/Interior/Apartamento_1",
+		"x":0,
+		"y":0
+		},
+		"radius":128
+		},
+		{
+		"name":"Beco",
+		"location":{
+		"location":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+		"x":-112,
+		"y":-88
+		},
+		"radius":32
+		},
+		{
+		"name":"prop_velinha",
+		"location":{
+			"location":"/root/MainTree/Interior/Interior_Condominio_1",
+			"x": 12,
+			"y": -48
+		},
+		"radius":48
+		},
+		{
+		"name":"jack_house",
+		"location":{
+			"location":"/root/MainTree/Interior/predio_jack_interior_2",
+			"x": 0,
+			"y": 0
+		},
+		"radius":80
+		},
+		{
+		"name":"jack_hallway",
+		"location":{
+			"location":"/root/MainTree/Interior/predio_jack_interior_1",
+			"x": 0,
+			"y": 0
+		},
+		"radius":80
+		},
+		{
+		"name":"garage",
+		"location":{
+			"location":"/root/MainTree/Interior/Garagem_interno",
+			"x": 0,
+			"y": 0
+		},
+		"radius":208
+		}
+	]
+}

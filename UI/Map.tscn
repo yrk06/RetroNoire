@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://UI/Map.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/Mapa.png" type="Texture" id=3]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -47,12 +48,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -128.0
-margin_top = -128.02
-margin_right = 128.0
-margin_bottom = 127.98
-texture = ExtResource( 1 )
+margin_top = -128.0
+margin_right = 256.0
+texture = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 1.0
+margin_bottom = 1.0
+color = Color( 1, 0, 0, 1 )

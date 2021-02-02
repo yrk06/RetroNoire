@@ -4,7 +4,7 @@
 [ext_resource path="res://UI/Analise.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/dogicapixel.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=7]
 code = "shader_type canvas_item;
 render_mode unshaded;
 
@@ -15,11 +15,11 @@ void fragment()
 COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, float(blurSize)/10.0);
 }"
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
 shader_param/blurSize = 20
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=6]
 size = 8
 font_data = ExtResource( 3 )
 
@@ -32,7 +32,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource( 2 )
+material = SubResource( 8 )
 margin_right = 320.0
 margin_bottom = 180.0
 texture = ExtResource( 1 )
@@ -68,10 +68,11 @@ margin_bottom = 64.0
 alignment = 1
 
 [node name="Img" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 160.0
-margin_right = 160.0
+margin_left = 128.0
+margin_right = 192.0
 margin_bottom = 64.0
-rect_min_size = Vector2( 0, 64 )
+rect_min_size = Vector2( 64, 64 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -86,7 +87,7 @@ rect_min_size = Vector2( 0, 16 )
 margin_top = 88.0
 margin_right = 320.0
 margin_bottom = 94.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "BlaBlaBla Mr Freeman"
 autowrap = true
 __meta__ = {

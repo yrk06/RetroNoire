@@ -10,6 +10,7 @@ var case_Pistas = []
 var case_logic_relay = []
 var case_mx_areas = []
 
+var case_villain
 var current_case_name = 'case_Frederico'
 
 var npcObject = preload("res://Object/NPCsObject.gd")
@@ -40,6 +41,7 @@ func _ready():
 	## Tocar os eventos
 	mx_gameplay = Fmod.create_event_instance("event:/mx_gameplay_dynamic")
 	mx_menu = Fmod.create_event_instance("event:/mx_menu_dynamic")
+	Fmod.set_global_parameter_by_name("mx_creditos",0)
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var value = rng.randf_range(0,1)
@@ -53,36 +55,41 @@ func enter_door(door):
 	## we need to load interior?
 	yield(UiInterface.fadein(),'fade_finished')
 	var to_interior = door.to_interior
-	
+	var was_interior = false
 	if to_interior:
 		var interior_name = door.interior_node_name.replace(" ",'')
 		## is it already loaded?
-		var is_loaded = get_node('/root/MainTree/Interior/'+door.interior_node_name)
+		var is_loaded = get_node_or_null('/root/MainTree/Interior/'+door.interior_node_name)
 		if not is_loaded:
 			
 			##Unload any possible interiors
 			for c in get_node('/root/MainTree/Interior').get_children():
+				was_interior = true
 				c.queue_free()
 				yield(c,"tree_exited")
 			## Load Interior at pos (0,0)
 			var interior = load("res://Maps/Interior/"+door.interior_node_name+".tscn").instance()
 			get_node('/root/MainTree/Interior').add_child(interior)
-		
 		##Unload map
 		for c in get_node('/root/MainTree/WorldMapNode').get_children():
 			c.queue_free()
 			yield(c,"tree_exited")
-		
+		if not was_interior:
+			PlayerInterface.is_inside = true
+			PlayerInterface.last_outside_position = PlayerInterface.get_player().position
 	else:
 		## Check is world map is loaded
 		##Unload any possible interiors
 		for c in get_node('/root/MainTree/Interior').get_children():
+			was_interior = true
 			c.queue_free()
+			yield(c,"tree_exited")
 		
 		##Load World
 		if not len(get_node('/root/MainTree/WorldMapNode').get_children()) > 0:
 			var exterior = mainWorld.instance()
 			get_node('/root/MainTree/WorldMapNode').add_child(exterior)
+		PlayerInterface.is_inside = false
 	##Position Player
 	get_node('/root/MainTree/Player').global_position = door.local_position_entry
 	try_loading_all_instances()
@@ -104,6 +111,7 @@ func try_loading_pistas():
 		instantiate_pista(p)
 
 func load_case_file(case_name):
+	current_case_name = case_name
 	var jsonString
 	var file = File.new()
 	file.open('res://case_files/'+case_name+'.json',File.READ)
@@ -119,6 +127,11 @@ func load_case_file(case_name):
 		yield(c,'tree_exited')
 	
 	var content = JSON.parse(jsonString).result
+	
+	case_NPCs = []
+	case_Pistas = []
+	case_logic_relay = []
+	case_mx_areas = []
 	
 	var mapname = content['start_info']["map"]
 	if mapname == "WorldMap":
@@ -147,6 +160,7 @@ func load_case_file(case_name):
 	for p in mx_areas:
 		case_mx_areas.append(p)
 		load_mx_gameplay_area(p)
+	case_villain = content["villain"]
 	get_node("/root/MainTree").add_child(preload("res://Player/Player.tscn").instance())
 	get_node("/root/MainTree/Player").position = Vector2(content['start_info']['x'],content['start_info']['y'])
 
@@ -163,6 +177,7 @@ func load_non_persisten_data_case_file(case_name):
 	for p in mx_areas:
 		case_mx_areas.append(p)
 		load_mx_gameplay_area(p)
+	case_villain = content["villain"]
 	
 func try_load_mx_area():
 	for p in case_mx_areas:
@@ -170,13 +185,13 @@ func try_load_mx_area():
 	
 func load_mx_gameplay_area(dict):
 	var path = dict["location"]['location']
-	var target = get_node(path)
+	var target = get_node_or_null(path)
 	
 	## Não existe a cena agora
 	if not target:
 		return
 	## Esse nó ja existe?
-	if target.get_node(dict["name"]):
+	if target.get_node_or_null(dict["name"]):
 		return
 	var instance = preload("res://Maps/Functional/mx_gameplay_area.tscn").instance()
 	instance.load_data(dict)
@@ -188,13 +203,13 @@ func try_load_logic_relay():
 
 func load_logic_relay(dict):
 	var path = dict["location"]
-	var target = get_node(path)
+	var target = get_node_or_null(path)
 	
 	## Não existe a cena agora
 	if not target:
 		return
 	## Esse nó ja existe?
-	if target.get_node(dict["name"]):
+	if target.get_node_or_null(dict["name"]):
 		return
 	var instance = Node.new()
 	instance.set_script(LogicRelay)
@@ -216,7 +231,7 @@ func load_npc(data):
 	return npc
 
 func instantiate_npc(npc):
-	var where = get_node(npc.location["path"])
+	var where = get_node_or_null(npc.location["path"])
 	if where:
 		var instance = npc.createNPCInstansce()
 		if instance:
@@ -229,7 +244,7 @@ func load_pista(data):
 	return pista
 
 func instantiate_pista(pista):
-	var where = get_node(pista.location["path"])
+	var where = get_node_or_null(pista.location["path"])
 	if where:
 		var instance = pista.createPistaInstansce()
 		if instance:
@@ -249,6 +264,7 @@ func save_game():
 	save_data['location']["x"] = currentMap.global_transform.xform_inv(playerPos).x
 	save_data['location']["y"] = currentMap.global_transform.xform_inv(playerPos).y
 	save_data["NPC"] = []
+	save_data["case_name"] = current_case_name
 	for p in case_NPCs:
 		save_data["NPC"].append(p.save_data())
 		
@@ -268,6 +284,8 @@ func save_game():
 	
 func load_game():
 	Fmod.stop_event(mx_menu,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
+	Fmod.start_event(bg_noite)
+	Fmod.start_event(mx_gameplay)
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.READ)
 	var jsonSave = save_game.get_as_text()
@@ -276,6 +294,7 @@ func load_game():
 	save_game.close()
 	var saved_dict = JSON.parse(jsonSave).result
 	
+	current_case_name = saved_dict["case_name"]
 	
 	yield(UiInterface.fadein(),'fade_finished')
 	
@@ -312,7 +331,7 @@ func load_game():
 		holder.add_child(interior)
 
 	get_node('/root/MainTree/Player').global_position = Vector2(saved_dict['location']["x"],saved_dict['location']["y"])
-		
+	
 	var npcs = saved_dict["NPC"]
 	for p in npcs:
 		instantiate_npc(load_npc(p))
@@ -358,5 +377,41 @@ func load_case_menu():
 	UiInterface.open_cases_menu()
 	
 func new_game(case):
+	Fmod.stop_event(mx_menu,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
+	Fmod.start_event(bg_noite)
+	Fmod.start_event(mx_gameplay)
 	UiInterface.close_case_menu()
 	load_case_file(case)
+
+func arrest(npc):
+	UiInterface.open_confirm_arrest(npc.name,self,'arrest_confirmed','arrest_denied')
+
+func arrest_confirmed(node):
+	node.disconnect('confirmed',self,'arrest_confirmed')
+	node.disconnect('denied',self,'arrest_denied')
+	var npc_name = node.npc
+	var win = npc_name == case_villain
+	var total_pista = len(case_Pistas)
+	var achadas = 0
+	for p in case_Pistas:
+		if p["state"]["investigada"]:
+			achadas += 1
+	UiInterface.open_endGame(win,achadas,total_pista)
+
+func arrest_denied(node):
+	node.disconnect('confirmed',self,'arrest_confirmed')
+	node.disconnect('denied',self,'arrest_denied')
+
+static func node_exists(node):
+	if node == null:
+	  return false
+
+	var ref = weakref(node).get_ref()
+
+	if ref == null:
+	  return false
+
+	if ref.is_queued_for_deletion():
+	  return false
+
+	return true

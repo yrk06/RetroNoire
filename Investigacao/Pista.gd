@@ -1,8 +1,7 @@
 extends Node2D
 
 
-export (Texture) var small_sprite
-export (Texture) var big_sprite
+export (Texture) var sprite
 
 export (String) var analise
 
@@ -19,7 +18,7 @@ var location
 func _ready():
 	if location:
 		position = location
-	$Sprite.texture = small_sprite
+	$Sprite.texture = sprite
 
 
 func interact():
@@ -27,4 +26,4 @@ func interact():
 		persistent_reference.trigger()
 		emit_signal("pista_pega")
 	state['investigada'] = true
-	UiInterface.abrir_menu_analise(big_sprite,analise)
+	UiInterface.abrir_menu_analise(sprite,analise)

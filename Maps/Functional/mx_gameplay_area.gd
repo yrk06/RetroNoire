@@ -17,8 +17,8 @@ func load_data(dict):
 
 
 func _on_mx_gameplay_area_body_entered(body):
-	Fmod.start_event(Game.mx_gameplay)
+	Fmod.set_global_parameter_by_name("mx_area_investigacao",1)
 
 
 func _on_mx_gameplay_area_body_exited(body):
-	Fmod.stop_event(Game.mx_gameplay,Fmod.FMOD_STUDIO_STOP_ALLOWFADEOUT)
+	Fmod.set_global_parameter_by_name("mx_area_investigacao",0)

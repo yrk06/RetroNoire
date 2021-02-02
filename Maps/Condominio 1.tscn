@@ -69,4 +69,4 @@ visible = false
 position = Vector2( 16, 0 )
 to_interior = true
 interior_node_name = "Interior_Condominio_1"
-local_position_entry = Vector2( 8, 80 )
+local_position_entry = Vector2( 8, 104 )
