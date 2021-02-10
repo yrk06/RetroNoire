@@ -1,0 +1,505 @@
+{
+	"case_name":"Frederico Vilas",
+	"start_info":{
+		"x":-40,
+		"y":-56,
+		"map":"Hotel_room_1"
+	},
+	"villain":"Jack",
+	"NPCs":[
+		{
+			"name": "Irmão de Frederico",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["Boa noite Detetive","Estou procurando por ajuda, meu irmão foi assasinado faz alguns dias, nenhuma investigação anda pra frente.","Preciso que quem esteja por trás disso vá para cadeia e tenho certeza que você consegue","Além disso, como sei que é novo na cidade, umas dicas: use Z para sair em portas. E quando encontrar o suspeito, aperte B para prende-lo","Você pode usar F6 para salvar e F7 para carregar depois","Aperte M para ver seu mapa e seguir em direção a cena do crime"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"11",
+			"location":{
+				"path":"Hotel_room_1",
+				"x": 24,
+				"y": -56
+			}
+		},
+		{
+			"name": "Proprietário",
+			"Type": 3,
+			"dialogs": {
+				"dialogo Inicial": ["Esse Frederico era um Fanfarrão, sempre fazendo festinhas até tarde, sem se importar com ninguém","Tenho certeza que os Assasinos entraram pela porta, eu ouvi os passos a noite"],
+				"later": ["Estou a disposição"],
+				"concordar": ["Pode contar com minha informação"],
+				"doubt": ["Eu estava tentando te ajudar, mas você duvida de mim"],
+				"recusa":["..."],
+				"verdade":["Talvez eu não tenha ouvido o vidro quebrar"],
+				"lie":["Eu estava te contando o que ouvi."]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"09",
+			"location":{
+				"path":"Interior_Condominio_1",
+				"x": 48,
+				"y": -48
+			}
+		},
+		{
+			"name": "Vizinha",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["Acho que foi Lucas quem matou Frederico, talvez eles não se dessem tão bem, vai saber quais negócios eles tinham entre eles"],
+				"later": ["Não demore, estou com medo daquelas companhias dele"],
+				"concordar": ["Nos traga tranquilidade"],
+				"lie": ["Eu não disse que tinha certeza"],
+				"recusa":["Não falo mais, vai que viro o proximo alvo"],
+				"doubt":[" Pensando bem, não acho que foi o Lucas, apesar de terem suas diferenças, sempre conseguiam se ajeitar. Além disso,"],
+				"verdade":["Lucas não tinha chave inglesa em casa"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"12",
+			"location":{
+				"path":"Interior_Condominio_1",
+				"x": -24,
+				"y": -48
+			}
+		},
+		{
+			"name": "Padeiro",
+			"Type": 1,
+			"dialogs": {
+				"dialogo Inicial": ["Vi um sujeito correndo ali para esquerda, pelo beco. Parecia que ele estava encrencado, correndo rápido daquele jeito."],
+				"later": ["Até mais"],
+				"concordar": ["Com certeza"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"06",
+			"location":{
+				"path":"WorldMap",
+				"x": -112,
+				"y": -64
+			}
+		},
+		{
+			"name": "Chefe",
+			"Type": 1,
+			"dialogs": {
+				"dialogo Inicial": ["O Único funcionário que não veio trabalhar desde a data do Crime foi Jack. Ele sempre teve um caráter meio duvidoso"],
+				"later": ["Fique a vontade"],
+				"concordar": ["Claro"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"12",
+			"location":{
+				"path":"Garagem_interno",
+				"x": -32,
+				"y": 32
+			}
+		},
+		{
+			"name": "funcionário 1",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["Sabe o Jack?","Ele sempre anda com a jaqueta dele, nunca vi ele ter sequer o menor dos danos na jaqueta"],
+				"later": ["A disposição"],
+				"concordar": ["Certo"],
+				"doubt":["Deixa eu ver essa jaqueta"],
+				"verdade":["Ahhh essa jaqueta no closet não é dele, é do Bob, que está viajando com uma equipe de F1 faz alguns meses"],
+				"lie":["Acha que não conheço meus colegas"],
+				"recusa":["Não sei de mais nada"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"13",
+			"location":{
+				"path":"Garagem_interno",
+				"x": 96,
+				"y": 32
+			}
+		},
+		{
+			"name": "funcionário 2",
+			"Type": 3,
+			"dialogs": {
+				"dialogo Inicial": ["Jack está viajando, faz uns dias que foi. Parece que ele tinha algumas questões familiares para resolver."],
+				"later": ["Estarei aqui"],
+				"concordar": ["Que bom"],
+				"lie":["Então..."],
+				"verdade":["Jack não foi viajar, mas pediu que dissessemos isso, ele falou que precisava de um tempo pra acertar as coisas por aqui"],
+				"doubt":["Te disse exatamente o que ele me disse"],
+				"recusa":["A partir de agora pergunte pra ele"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"14",
+			"location":{
+				"path":"Garagem_interno",
+				"x": 146,
+				"y": -24
+			}
+		},
+		{
+			"name": "funcionária 3",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["Os closets de funcionários são lá atrás"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"13",
+			"location":{
+				"path":"Garagem_interno",
+				"x": 32,
+				"y": 64
+			}
+		},
+		{
+			"name": "Vizinha 2",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["Acho que vieram pessoas antes do crime, talvez alguém que more aqui possa ter falado com ele, mas acho difícil"],
+				"later": ["Não demore"],
+				"concordar": ["adorável"],
+				"doubt":["Faz sentido"],
+				"verdade":["É verdade, um homem dono de uns apartamentos bateu aqui pedir açúcar"],
+				"lie":["Eu se fosse você confiaria em mim"],
+				"recusa":["hmph"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"06",
+			"location":{
+				"path":"predio_jack_interior_1",
+				"x": 48,
+				"y": -20
+			}
+		},
+		{
+			"name": "irmã de jack",
+			"Type": 3,
+			"dialogs": {
+				"dialogo Inicial": ["Jack esta um pouco debilitado esses dias, não tem saído de casa, tivemos problemas na nossa família e ele se abalou muito com isso"],
+				"later": ["humph"],
+				"concordar": ["Que bom que você entende"],
+				"lie":["não queria dizer isso..."],
+				"verdade":["Jack sai de vez em quando, quando ele tem assuntos a tratar por aqui"],
+				"doubt":["Eu conheço meu irmão"],
+				"recusa":["Da o fora daqui"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"01",
+			"location":{
+				"path":"predio_jack_interior_2",
+				"x": -32,
+				"y": 32
+			}
+		},
+		{
+			"name": "Proprietario",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["Como está andando a Investigação?"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"03",
+			"location":{
+				"path":"WorldMap",
+				"x": -912,
+				"y": -200
+			}
+		},
+		{
+			"name": "Jack",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["O que você quer comigo?"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"08",
+			"location":{
+				"path":"WorldMap",
+				"x": -880,
+				"y": -200
+			}
+		}
+		
+	],
+	"Pistas":[
+		{
+			"analise":"A Janela está quebrada",
+			"state":{
+				"investigada":false
+			},
+			"name":"janela_ap_01",
+			"location":{
+				"path":"Apartamento_1",
+				"x": 0,
+				"y": -16
+			},
+			"npcs":["Proprietário"],
+			"sprite":"Vidro"
+		},
+		{
+			"analise":"Uma chave inglesa, a arma do crime",
+			"state":{
+				"investigada":false
+			},
+			"name":"chave_ing_0",
+			"location":{
+				"path":"Apartamento_1",
+				"x": -72,
+				"y": 0
+			},
+			"npcs":["Vizinha"],
+			"sprite":"Chave_Inglesa"
+		},
+		{
+			"analise":"pedaço de macacão de mecanico, contém uma logo",
+			"state":{
+				"investigada":false
+			},
+			"name":"macacão",
+			"location":{
+				"path":"WorldMap",
+				"x": -88,
+				"y": -112
+			},
+			"npcs":[],
+			"sprite":"Rasgo_de_jaqueta"
+		},
+		{
+			"analise":"Identidade e endereço de Jack",
+			"state":{
+				"investigada":false
+			},
+			"name":"Identidade",
+			"location":{
+				"path":"Garagem_interno",
+				"x": 24,
+				"y": -52
+			},
+			"npcs":["funcionário 2"],
+			"sprite":"Documento"
+		},
+		{
+			"analise":"Jaqueta com uma parte rasgada",
+			"state":{
+				"investigada":false
+			},
+			"name":"jaqueta",
+			"location":{
+				"path":"Garagem_interno",
+				"x": -56,
+				"y": -44
+			},
+			"npcs":["funcionário 1"],
+			"sprite":"Rasgo_de_jaqueta"
+		},
+		{
+			"analise":"Muitas notas fiscais de uma cafeteria",
+			"state":{
+				"investigada":false
+			},
+			"name":"notas",
+			"location":{
+				"path":"predio_jack_interior_2",
+				"x": 0,
+				"y": 36
+			},
+			"npcs":["irmã de jack"],
+			"sprite":"Documento"
+		},
+		{
+			"analise":"Xicarás sujas de chá, mais alguém esteve aqui",
+			"state":{
+				"investigada":false
+			},
+			"name":"xicaras",
+			"location":{
+				"path":"predio_jack_interior_2",
+				"x": -28,
+				"y": -44
+			},
+			"npcs":["Vizinha 2"],
+			"sprite":"Xicaras"
+		},
+	],
+	"POI":[
+		{
+		"location":{
+			"x":150,
+			"y":100,
+			},
+		"text":"Cena do Crime",
+		"visible": true
+		},
+		{
+		"location":{
+			"x":110,
+			"y":64,
+			},
+		"text":"Mecanica"
+		},
+		{
+		"location":{
+			"x":184,
+			"y":71,
+			},
+		"text":"Casa do Jack"
+		},
+		{
+		"location":{
+			"x":30,
+			"y":74,
+			},
+		"text":"Cafeteria"
+		}
+	],
+	"LogicRelay":[
+		{
+			"name":"lr_mecanica",
+			"signals":[
+				["../macacão","pista_pega"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Mecanica"]
+			],
+			"location":"WorldMap",
+			"once": true,
+			"enabled":true
+		},
+		{
+			"name":"lr_jack",
+			"signals":[
+				["../Identidade","pista_pega"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Casa do Jack"]
+			],
+			"location":"Garagem_interno",
+			"once": true,
+			"enabled":true
+		},
+		{
+			"name":"lr_cafe",
+			"signals":[
+				["../notas","pista_pega"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Cafeteria"]
+			],
+			"location":"predio_jack_interior_2",
+			"once": true,
+			"enabled":true
+		}
+	],
+	"mx_areas":[
+		{
+		"name":"Apartamento_1",
+		"location":{
+		"location":"Apartamento_1",
+		"x":0,
+		"y":0
+		},
+		"radius":128
+		},
+		{
+		"name":"Beco",
+		"location":{
+		"location":"WorldMap",
+		"x":-112,
+		"y":-88
+		},
+		"radius":32
+		},
+		{
+		"name":"prop_velinha",
+		"location":{
+			"location":"Interior_Condominio_1",
+			"x": 12,
+			"y": -48
+		},
+		"radius":48
+		},
+		{
+		"name":"jack_house",
+		"location":{
+			"location":"predio_jack_interior_2",
+			"x": 0,
+			"y": 0
+		},
+		"radius":80
+		},
+		{
+		"name":"jack_hallway",
+		"location":{
+			"location":"predio_jack_interior_1",
+			"x": 0,
+			"y": 0
+		},
+		"radius":80
+		},
+		{
+		"name":"garage",
+		"location":{
+			"location":"Garagem_interno",
+			"x": 0,
+			"y": 0
+		},
+		"radius":208
+		}
+	]
+}

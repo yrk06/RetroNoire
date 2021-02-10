@@ -33,19 +33,20 @@ onready var optionMenu = $wOptions/MarginContainer/HBoxContainer/OptionsMenu
 var text = "" setget set_text
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	reset()
+	$wOptions.visible = false
+	$Normal.visible = false
 	pass # Replace with function body.
 
 func _physics_process(delta):
 	if input_enabled:
-		if Input.is_action_just_pressed("interact") or Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept"):
 			emit_signal("input_event")
 	if selection_enabled:
 		if Input.is_action_just_pressed("walk_down"):
 			self.cursor += 1
 		if Input.is_action_just_pressed("walk_up"):
 			self.cursor -= 1
-		if Input.is_action_just_pressed("interact") or Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept"):
 			reset()
 			emit_signal("option_selected",cursor)
 			reset_player_signals()
@@ -79,7 +80,8 @@ func reset_player_signals():
 	current_node_info['node'] = null
 	current_node_info['callback'] = null
 
-func wOptions(dialog,option,node,callback):
+func wOptions(dialog,option,node,callback,pname='...'):
+	$Name.text = pname
 	$wOptions.visible = true
 	options = option
 	current_dialog = dialog
@@ -93,7 +95,8 @@ func wOptions(dialog,option,node,callback):
 	$Timer.start()
 	speech()
 
-func classic(dialog):
+func classic(dialog,pname="..."):
+	$Name.text = pname
 	$Normal.visible = true
 	current_dialog = dialog
 	currentPhraseIndex = 0
@@ -114,9 +117,8 @@ func phrase_finished_op():
 
 func enable_options():
 	var nodes = optionMenu.get_children()
-	for p in range(len(options)):
+	for p in range(options):
 		nodes[p].visible = true
-		nodes[p].text = options[p]
 		nodes[p].unselect()
 		if p == 0:
 			nodes[p].select()
@@ -126,7 +128,7 @@ func set_cursor(value):
 	var nodes = optionMenu.get_children()
 	nodes[cursor].unselect()
 	cursor = value
-	var total_size = len(options)
+	var total_size = options
 	if cursor < 0:
 		cursor += total_size
 	if cursor >= total_size:

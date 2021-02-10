@@ -48,6 +48,9 @@ func process_input():
 	if Input.is_action_just_pressed("interact"):
 		interact()
 		
+	if Input.is_action_just_pressed("bop"):
+		arrest()
+		
 	if Input.is_action_just_pressed("open_map"):
 		UiInterface.open_map()
 		
@@ -84,7 +87,7 @@ func interact():
 			
 			
 			Fmod.set_global_parameter_by_name('mx_pista',1)
-			pistas_encontradas.append(pistas[0].get_parent().persistent_reference)
+			#pistas_encontradas.append(pistas[0].get_parent().persistent_reference)
 		pistas[0].get_parent().interact()
 		return
 		
@@ -95,7 +98,11 @@ func interact():
 		
 		
 		
-
+func arrest():
+	var pessoas = $InteractArea.get_overlapping_bodies()
+	if len(pessoas) > 0:
+		Game.arrest(pessoas[0])
+		
 
 func _on_InteractArea_area_entered(area):
 	## Tem uma pista perto

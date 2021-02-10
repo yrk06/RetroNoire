@@ -1,0 +1,566 @@
+{
+	"case_name":"Derailed",
+	"start_info":{
+		"x":-40,
+		"y":-56,
+		"map":"Hotel_room_1"
+	},
+	"villain":"Fred",
+	"NPCs":[
+		{
+			"name": "Arthur's friend",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["Night Detective","I have a new case for you","My friend, Arthur Lage, was murdered yesterday and I want you to find who's responsible","Since you're new in town, a couple tips: use Z to walk out doors. And when you find the suspect, press B to arrest them","You can use F6 to save your game and F7 to load","Press M to see your map and find your way to the Crime Scene"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"00",
+			"location":{
+				"path":"Hotel_room_1",
+				"x": 24,
+				"y": -56
+			}
+		},
+		{
+			"name": "Worker 1",
+			"Type": 1,
+			"dialogs": {
+				"dialogo Inicial": ["So sad to see this happen with someone so young","The only people that comes to mind are","John Hux and Cris Haden."],
+				"later":["See you around"],
+				"concordar":["Happy to Help"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"13",
+			"location":{
+				"path":"WorldMap",
+				"x": -544,
+				"y": 256
+			}
+		},
+		{
+			"name": "Worker 2",
+			"Type": 3,
+			"dialogs": {
+				"dialogo Inicial": ["I live close by, I heard a motorcicle here, I saw it for a split second through the window"],
+				"later": ["I'm here all day"],
+				"concordar": ["You can trust me"],
+				"lie": ["Mr Detective, I can't say this out loud","My life is in danger"],
+				"recusa":["For my own safety","I won't say anything else"],
+				"doubt":["I don't doubt what I say"],
+				"verdade":["It was a red car"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"12",
+			"location":{
+				"path":"WorldMap",
+				"x": -464,
+				"y": 352
+			}
+		},
+		{
+			"name": "Worker 3",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["I think the killer was unprepared","They must have used one of our own tools"],
+				"later": ["See you later"],
+				"concordar": ["Makes sense, doesn't it?"],
+				"doubt":["This changes things"],
+				"verdade":["The killer brought their own tool"],
+				"lie":["I had an Idea"],
+				"recusa":["I'll keep my thoughts for myself"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"11",
+			"location":{
+				"path":"WorldMap",
+				"x": -560,
+				"y": 304
+			}
+		},
+		{
+			"name": "Neighbour 1",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["Is John in trouble?","He switched cars recently, I think he bought a red car"],
+				"later": ["Just be back and I'll be here"],
+				"concordar": ["Great"],
+				"doubt":["Indeed, I made a mistake"],
+				"verdade":["His old car was red, the new one is blue"],
+				"lie":["John told me that himself"],
+				"recusa":["Go and ask him from now on"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"11",
+			"location":{
+				"path":"WorldMap",
+				"x": -344,
+				"y": 104
+			}
+		},
+		{
+			"name": "John",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["I work on film production, I had a red car, but it isn't the same one that was in the crime"],
+				"later": ["At your disposal"],
+				"concordar": ["Great, I have to get going"],
+				"doubt":["If you'd like, go in the garage ask them"],
+				"verdade":["But my car doesn't have these tire tracks"],
+				"lie":["I really can't waste anymore time"],
+				"recusa":["I'm out of time"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"04",
+			"location":{
+				"path":"WorldMap",
+				"x": 32,
+				"y": -272
+			}
+		},
+		{
+			"name": "Neighbour 2",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["Chris had switched cars few days ago, I think he bought a yellow car"],
+				"later": ["I'll be here"],
+				"concordar": ["..."],
+				"lie":["Do you think I'm lying? He even took me for a ride"],
+				"verdade":["The yellow car was his old one, he bought a red car"],
+				"doubt":["True"],
+				"recusa":["Pretend I'm not here"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"05",
+			"location":{
+				"path":"WorldMap",
+				"x": -256,
+				"y": 112
+			}
+		},
+		{
+			"name": "Chris",
+			"Type": 1,
+			"dialogs": {
+				"dialogo Inicial": ["I did buy a red car, but I haven't got it yet in the garage","Yesterday I was riding my old car with my boss and neighbour"],
+				"later":["Alright"],
+				"concordar":["I'll keep waiting further info"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"06",
+			"location":{
+				"path":"WorldMap",
+				"x": -808,
+				"y": -248
+			}
+		},
+		{
+			"name": "Boss",
+			"Type": 1,
+			"dialogs": {
+				"dialogo Inicial": ["Yes, I was with Chris during the time of the Crime, we were searching for a new home for him","What I rememeber is that the Mechanic where he bought the car was very grumpy looking"],
+				"later": ["Sure"],
+				"concordar": ["Happy to help"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"04",
+			"location":{
+				"path":"WorldMap",
+				"x": -912,
+				"y": -208
+			}
+		},
+		{
+			"name": "Paul",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["Each employee here has it's own Tool Locker"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"14",
+			"location":{
+				"path":"Garagem_interno",
+				"x": 152,
+				"y": 56
+			}
+		},
+		{
+			"name": "Fred",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["I know nothing about the suspects, I only sold a car to one of them"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"13",
+			"location":{
+				"path":"Garagem_interno",
+				"x": -168,
+				"y": 8
+			}
+		},
+		{
+			"name": "Chief Mechanic",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["One of our employees took the red car out for a ride, I don't know which of them, it's whoever sold a car for John"],
+				"lie":["I know my company"],
+				"recusa":["i can't help you anymore"],
+				"doubt":["Let me see this receipt"],
+				"verdade":["Fred was the one to take the red car for a ride yesterday"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"12",
+			"location":{
+				"path":"Garagem_interno",
+				"x": 24,
+				"y": -40
+			}
+		}
+		
+	],
+	"Pistas":[
+		{
+			"analise":"The crime weapon is a spanner",
+			"state":{
+				"investigada":false
+			},
+			"name":"arma_crime",
+			"location":{
+				"path":"WorldMap",
+				"x": -296,
+				"y": 248
+			},
+			"npcs":[""],
+			"sprite":"Chave_boca"
+		},
+		{
+			"analise":"Double tracks, a car for sure",
+			"state":{
+				"investigada":false
+			},
+			"name":"tracks_car",
+			"location":{
+				"path":"WorldMap",
+				"x": -488,
+				"y": 424
+			},
+			"npcs":["Worker 2","John"],
+			"sprite":"Tracks"
+		},
+		{
+			"analise":"Company tool locker. Not a single tool missing",
+			"state":{
+				"investigada":false
+			},
+			"name":"armario",
+			"location":{
+				"path":"WorldMap",
+				"x": -312,
+				"y": 208
+			},
+			"npcs":["Worker 3"],
+			"sprite":"Gavetas"
+		},
+		{
+			"analise":"Receipts for Film tickets",
+			"state":{
+				"investigada":false
+			},
+			"name":"ingressos",
+			"location":{
+				"path":"Casa_1",
+				"x": -8,
+				"y": -128
+			},
+			"npcs":[],
+			"sprite":"Documento"
+		},
+		{
+			"analise":"Receipt for a car, Blue. By Fred",
+			"state":{
+				"investigada":false
+			},
+			"name":"jaqueta",
+			"location":{
+				"path":"Casa_1",
+				"x": -56,
+				"y": -128
+			},
+			"npcs":["Neighbour 1","Chief Mechanic"],
+			"sprite":"Documento"
+		},
+		{
+			"analise":"Lots of Paperwork, looks like he's a counter at the local cafe",
+			"state":{
+				"investigada":false
+			},
+			"name":"notas",
+			"location":{
+				"path":"Casa_2",
+				"x": 40,
+				"y": -88
+			},
+			"npcs":[""],
+			"sprite":"Documento"
+		},
+		{
+			"analise":"Receipt for a car, Red. By Paul",
+			"state":{
+				"investigada":false
+			},
+			"name":"recibo2",
+			"location":{
+				"path":"Casa_2",
+				"x": 56,
+				"y": -128
+			},
+			"npcs":["Neighbour 2"],
+			"sprite":"Documento"
+		},
+		{
+			"analise":"Fred's tool locker. Only missing a spanner",
+			"state":{
+				"investigada":false
+			},
+			"name":"armarioFred",
+			"location":{
+				"path":"Garagem_interno",
+				"x": -72,
+				"y": -48
+			},
+			"npcs":[],
+			"sprite":"Gavetas"
+		},
+	],
+	"POI":[
+		{
+		"location":{
+			"x":100,
+			"y":164,
+			},
+		"text":"Crime Scene",
+		"visible": true
+		},
+		{
+		"location":{
+			"x":97,
+			"y":122,
+			},
+		"text":"Suspect's houses",
+		},
+		{
+		"location":{
+			"x":161,
+			"y":72,
+			},
+		"text":"Cinema",
+		},
+		{
+		"location":{
+			"x":29,
+			"y":76,
+			},
+		"text":"Cafe",
+		},
+		{
+		"location":{
+			"x":100,
+			"y":64,
+			},
+		"text":"Garage",
+		}
+	],
+	"LogicRelay":[
+		{
+			"name":"lr_sus",
+			"signals":[
+				["../Worker 1","truth_revealed"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Suspect's houses"]
+			],
+			"location":"WorldMap",
+			"once": true,
+			"enabled":true
+		},
+		{
+			"name":"lr_cinema",
+			"signals":[
+				["../ingressos","pista_pega"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Cinema"]
+			],
+			"location":"Casa_1",
+			"once": true,
+			"enabled":true
+		},
+		{
+			"name":"lr_cafe",
+			"signals":[
+				["../notas","pista_pega"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Cafe"]
+			],
+			"location":"Casa_2",
+			"once": true,
+			"enabled":true
+		},
+		{
+			"name":"lr_garagem",
+			"signals":[
+				["../John","truth_revealed"],
+				["../Boss","truth_revealed"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Garage"]
+			],
+			"location":"WorldMap",
+			"once": true,
+			"enabled":true
+		}
+	],
+	"mx_areas":[
+		{
+		"name":"patio",
+		"location":{
+		"location":"WorldMap",
+			"x":-512,
+			"y":344
+			},
+		"radius":128
+		},
+		{
+		"name":"casas",
+		"location":{
+		"location":"WorldMap",
+		"x":-304,
+		"y":104
+		},
+		"radius":64
+		},
+		{
+		"name":"mx_john",
+		"location":{
+			"location":"WorldMap",
+			"x": 32,
+			"y": -272
+		},
+		"radius":32
+		},
+		{
+		"name":"mx_Chris",
+		"location":{
+			"location":"WorldMap",
+			"x": -808,
+			"y": -248
+		},
+		"radius":80
+		},
+		{
+		"name":"mx_boss",
+		"location":{
+			"location":"WorldMap",
+			"x": -912,
+			"y": -208
+		},
+		"radius":80
+		},
+		{
+		"name":"garage",
+		"location":{
+			"location":"Garagem_interno",
+			"x": 0,
+			"y": 0
+		},
+		"radius":208
+		},
+		{
+		"name":"casa1",
+		"location":{
+			"location":"Casa_1",
+			"x": 0,
+			"y": 0
+		},
+		"radius":256
+		},
+		{
+		"name":"casa2",
+		"location":{
+			"location":"Casa_2",
+			"x": 0,
+			"y": 0
+		},
+		"radius":256
+		},
+		{
+		"name":"pistas",
+		"location":{
+			"location":"WorldMap",
+			"x": -312,
+			"y": 208
+		},
+		"radius":48
+		},
+	]
+}

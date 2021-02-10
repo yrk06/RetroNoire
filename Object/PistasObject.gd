@@ -22,6 +22,7 @@ var location = {
 	"location":Vector2()
 }
 
+var sprite
 var npcs_to_trigger = []
 
 # Called when the node enters the scene tree for the first time.
@@ -34,6 +35,7 @@ func set_data(dict):
 	analise = dict['analise']
 	state = dict["state"]
 	name = dict["name"]
+	sprite = dict["sprite"]
 	location = {
 		"path": dict["location"]["path"],
 		'location':Vector2(dict["location"]['x'],dict["location"]['y'])
@@ -56,10 +58,11 @@ func save_data():
 		"y": location["location"].y,
 	}
 	dict["npcs"] = npcs_to_trigger
+	dict["sprite"] = sprite
 	return dict
 	
 func createPistaInstansce():
-	if physical_reference:
+	if Game.node_exists(physical_reference):
 		return
 	var Pista = preload('res://Investigacao/Pista.tscn').instance()
 	#Pista.small_sprite = small_sprite
@@ -69,6 +72,7 @@ func createPistaInstansce():
 	Pista.name = name
 	Pista.location = location["location"]
 	Pista.persistent_reference = self
+	Pista.sprite = load("res://assets/art/pistas/"+sprite+".png")
 	physical_reference = Pista
 	return Pista
 

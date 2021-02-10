@@ -8,7 +8,7 @@
 extents = Vector2( 8, 24 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 40, 4 )
+extents = Vector2( 15, 8 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 24, 4 )
@@ -50,7 +50,11 @@ position = Vector2( -24, 32 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 24, 60 )
+position = Vector2( -1, 64 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 49, 64 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
@@ -95,7 +99,7 @@ shape = SubResource( 9 )
 
 [node name="Door" parent="." instance=ExtResource( 2 )]
 visible = false
-position = Vector2( 88, 8 )
+position = Vector2( 24, 72 )
 to_interior = true
 interior_node_name = "Interior_Condominio_1"
 local_position_entry = Vector2( 88, -48 )
@@ -104,4 +108,4 @@ local_position_entry = Vector2( 88, -48 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( -131074, 2, 262144, -196604, 2, 262144, -65538, 2, 393216, -131068, 2, 393216 )
+tile_data = PoolIntArray( -131074, 2, 262144, -196604, 2, 262144, -65538, 2, 393216, -131068, 2, 393216, 196609, 0, 851971 )

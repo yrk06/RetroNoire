@@ -1,0 +1,20 @@
+KEY,pt_BR,en
+MENU_CONTINUAR,Continuar,Continue
+MENU_NOVO_JOGO,Novo Jogo,New Game
+MENU_SAIR,Sair,Exit
+MENU_CASO_TITLE,Selecionar Caso,Select Case
+MENU_VOLTAR,Voltar,Back
+GAME_MAPA,apareceu no mapa,is now on the map
+GAME_CONFIRMAR_PRESO,Tem certeza que deseja prender:,Are you sure you want to arrest:
+GAME_CONFIRMAR_INSTRUCTIONS,ESC para cancelar. Z ou Enter para confimar,ESC to cancel. Z or Enter to confirm
+GAME_OVER,Fim de Jogo,Game Over
+GAME_RESULT_WON,Você prendeu a pessoa certa,You got the right person
+GAME_RESULT_LOST,Você prendeu a pessoa errada,You got the wrong person
+GAME_PISTAS,Pistas,Evidence
+DIALOG_LATER,Até mais,See you Later
+DIALOG_CONFIRMAR,Confirmar,Confirm
+DIALOG_DOUBT,Duvidar,Doubt
+DIALOG_LIE,Mentira,Lie
+GAME_TUT_1,Use Z para interagir,Use Z to interact
+GAME_LNG,pt_BR,en
+GAME_ENTER,Aperte Enter para continuar,Press Enter to continue

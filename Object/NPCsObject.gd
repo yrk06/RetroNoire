@@ -59,7 +59,7 @@ func set_data(dict):
 	pass
 
 func unlock_options():
-	options = [ "Até mais", "Concordar", "Duvidar", "Mentira"]
+	options = 4
 	if physical_reference:
 		physical_reference.options = options
 
@@ -83,7 +83,7 @@ func save_data():
 	return dict
 	
 func createNPCInstansce():
-	if physical_reference:
+	if Game.node_exists(physical_reference):
 		return
 	var NPC = preload('res://NPCs/NPC.tscn').instance()
 	NPC.Type = Type

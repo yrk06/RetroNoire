@@ -31,17 +31,17 @@ func abrir_menu_analise(sprite,analise):
 
 ##Abre uma textbox com espaço pra seleções. além disso chama <callback> em <node>
 # com o numero da opcão selecionada
-func abrir_text_box_com_opcoes(dialogo,opcoes,node,callback):
+func abrir_text_box_com_opcoes(dialogo,opcoes,node,callback,pname):
 	var txt_node = get_node('/root/MainTree/UI/UIControl/TextBoxes')
-	txt_node.wOptions(dialogo,opcoes,node,callback)
+	txt_node.wOptions(dialogo,opcoes,node,callback,pname)
 	txt_node.visible = true
 	PlayerInterface.take_player_control()
 	pass
 
 ##Abre uma textbox padrão
-func abrir_text_box(dialogo):
+func abrir_text_box(dialogo,pname):
 	var txt_node = get_node('/root/MainTree/UI/UIControl/TextBoxes')
-	txt_node.classic(dialogo)
+	txt_node.classic(dialogo,pname)
 	txt_node.visible = true
 	PlayerInterface.take_player_control()
 	pass
@@ -77,3 +77,42 @@ func save_map():
 func load_map(vpois):
 	var map_node = get_node('/root/MainTree/UI/UIControl/Map')
 	map_node.load_data(vpois)
+
+func close_menu():
+	var menu = get_node('/root/MainTree/UI/UIControl/MenuInicial')
+	menu.visible = false
+	
+func open_menu():
+	var menu = get_node('/root/MainTree/UI/UIControl/MenuInicial')
+	menu.visible = true
+
+func search_cases():
+	var case = get_node('/root/MainTree/UI/UIControl/Menucasos')
+	case.search_cases()
+
+func open_cases_menu():
+	var case = get_node('/root/MainTree/UI/UIControl/Menucasos')
+	case.visible = true
+	
+func close_case_menu():
+	var case = get_node('/root/MainTree/UI/UIControl/Menucasos')
+	case.visible = false
+
+func open_confirm_arrest(npc,node=null,callbackC=null,callbackD=null):
+	var arrest = get_node('/root/MainTree/UI/UIControl/ConfirmArrest')
+	arrest.set_npc_name(npc)
+	arrest.visible = true
+	if node:
+		if callbackC:
+			arrest.connect('confirmed',node,callbackC,[arrest])
+		if callbackD:
+			arrest.connect('denied',node,callbackD,[arrest])
+
+func open_endGame(victory,pistasAchadas,pistaTotal):
+	var endgame = get_node('/root/MainTree/UI/UIControl/EndGame')
+	endgame.set_info(victory,pistasAchadas,pistaTotal)
+	endgame.visible = true
+
+func show_credits():
+	var credits = get_node('/root/MainTree/UI/UIControl/Creditos')
+	credits.visible = true

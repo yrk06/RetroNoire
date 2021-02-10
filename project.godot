@@ -28,6 +28,7 @@ _global_script_class_icons={
 
 config/name="RetroNoire"
 run/main_scene="res://testScenes/TestEnv.tscn"
+boot_splash/image="res://assets/Splash Retro.png"
 config/icon="res://icon.png"
 
 [autoload]
@@ -105,6 +106,11 @@ open_map={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":77,"unicode":0,"echo":false,"script":null)
  ]
 }
+bop={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":66,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -114,7 +120,14 @@ open_map={
 2d_physics/layer_4="Pistas"
 2d_physics/layer_5="Portas"
 
+[locale]
+
+test="pt_BR"
+locale_filter=[ 1, [ "en", "pt_BR" ] ]
+translations=PoolStringArray( "res://assets/localization.pt_BR.translation", "res://assets/localization.en.translation" )
+
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
