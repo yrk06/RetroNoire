@@ -21,7 +21,7 @@
 			"spriteFrames":1,
 			"variation":"11",
 			"location":{
-				"path":"/root/MainTree/Interior/Hotel_room_1",
+				"path":"Hotel_room_1",
 				"x": 24,
 				"y": -56
 			}
@@ -46,7 +46,7 @@
 			"spriteFrames":1,
 			"variation":"09",
 			"location":{
-				"path":"/root/MainTree/Interior/Interior_Condominio_1",
+				"path":"Interior_Condominio_1",
 				"x": 48,
 				"y": -48
 			}
@@ -71,7 +71,7 @@
 			"spriteFrames":0,
 			"variation":"12",
 			"location":{
-				"path":"/root/MainTree/Interior/Interior_Condominio_1",
+				"path":"Interior_Condominio_1",
 				"x": -24,
 				"y": -48
 			}
@@ -92,7 +92,7 @@
 			"spriteFrames":1,
 			"variation":"06",
 			"location":{
-				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"path":"WorldMap",
 				"x": -112,
 				"y": -64
 			}
@@ -113,7 +113,7 @@
 			"spriteFrames":1,
 			"variation":"12",
 			"location":{
-				"path":"/root/MainTree/Interior/Garagem_interno",
+				"path":"Garagem_interno",
 				"x": -32,
 				"y": 32
 			}
@@ -138,7 +138,7 @@
 			"spriteFrames":1,
 			"variation":"13",
 			"location":{
-				"path":"/root/MainTree/Interior/Garagem_interno",
+				"path":"Garagem_interno",
 				"x": 96,
 				"y": 32
 			}
@@ -163,7 +163,7 @@
 			"spriteFrames":1,
 			"variation":"14",
 			"location":{
-				"path":"/root/MainTree/Interior/Garagem_interno",
+				"path":"Garagem_interno",
 				"x": 146,
 				"y": -24
 			}
@@ -182,7 +182,7 @@
 			"spriteFrames":0,
 			"variation":"13",
 			"location":{
-				"path":"/root/MainTree/Interior/Garagem_interno",
+				"path":"Garagem_interno",
 				"x": 32,
 				"y": 64
 			}
@@ -207,7 +207,7 @@
 			"spriteFrames":0,
 			"variation":"06",
 			"location":{
-				"path":"/root/MainTree/Interior/predio_jack_interior_1",
+				"path":"predio_jack_interior_1",
 				"x": 48,
 				"y": -20
 			}
@@ -232,7 +232,7 @@
 			"spriteFrames":0,
 			"variation":"01",
 			"location":{
-				"path":"/root/MainTree/Interior/predio_jack_interior_2",
+				"path":"predio_jack_interior_2",
 				"x": -32,
 				"y": 32
 			}
@@ -251,7 +251,7 @@
 			"spriteFrames":1,
 			"variation":"03",
 			"location":{
-				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"path":"WorldMap",
 				"x": -912,
 				"y": -200
 			}
@@ -270,7 +270,7 @@
 			"spriteFrames":1,
 			"variation":"08",
 			"location":{
-				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"path":"WorldMap",
 				"x": -880,
 				"y": -200
 			}
@@ -285,7 +285,7 @@
 			},
 			"name":"janela_ap_01",
 			"location":{
-				"path":"/root/MainTree/Interior/Apartamento_1",
+				"path":"Apartamento_1",
 				"x": 0,
 				"y": -16
 			},
@@ -299,7 +299,7 @@
 			},
 			"name":"chave_ing_0",
 			"location":{
-				"path":"/root/MainTree/Interior/Apartamento_1",
+				"path":"Apartamento_1",
 				"x": -72,
 				"y": 0
 			},
@@ -313,7 +313,7 @@
 			},
 			"name":"macacão",
 			"location":{
-				"path":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+				"path":"WorldMap",
 				"x": -88,
 				"y": -112
 			},
@@ -327,7 +327,7 @@
 			},
 			"name":"Identidade",
 			"location":{
-				"path":"/root/MainTree/Interior/Garagem_interno",
+				"path":"Garagem_interno",
 				"x": 24,
 				"y": -52
 			},
@@ -341,7 +341,7 @@
 			},
 			"name":"jaqueta",
 			"location":{
-				"path":"/root/MainTree/Interior/Garagem_interno",
+				"path":"Garagem_interno",
 				"x": -56,
 				"y": -44
 			},
@@ -355,7 +355,7 @@
 			},
 			"name":"notas",
 			"location":{
-				"path":"/root/MainTree/Interior/predio_jack_interior_2",
+				"path":"predio_jack_interior_2",
 				"x": 0,
 				"y": 36
 			},
@@ -369,7 +369,7 @@
 			},
 			"name":"xicaras",
 			"location":{
-				"path":"/root/MainTree/Interior/predio_jack_interior_2",
+				"path":"predio_jack_interior_2",
 				"x": -28,
 				"y": -44
 			},
@@ -380,30 +380,30 @@
 	"POI":[
 		{
 		"location":{
-			"x":175,
-			"y":71,
+			"x":150,
+			"y":100,
 			},
 		"text":"Cena do Crime",
 		"visible": true
 		},
 		{
 		"location":{
-			"x":135,
-			"y":35,
+			"x":110,
+			"y":64,
 			},
 		"text":"Mecanica"
 		},
 		{
 		"location":{
-			"x":214,
-			"y":42,
+			"x":184,
+			"y":71,
 			},
 		"text":"Casa do Jack"
 		},
 		{
 		"location":{
-			"x":36,
-			"y":44,
+			"x":30,
+			"y":74,
 			},
 		"text":"Cafeteria"
 		}
@@ -417,7 +417,7 @@
 			"triggers":[
 				["UI","map_show_poi","Mecanica"]
 			],
-			"location":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+			"location":"WorldMap",
 			"once": true,
 			"enabled":true
 		},
@@ -429,7 +429,7 @@
 			"triggers":[
 				["UI","map_show_poi","Casa do Jack"]
 			],
-			"location":"/root/MainTree/Interior/Garagem_interno",
+			"location":"Garagem_interno",
 			"once": true,
 			"enabled":true
 		},
@@ -441,7 +441,7 @@
 			"triggers":[
 				["UI","map_show_poi","Cafeteria"]
 			],
-			"location":"/root/MainTree/Interior/predio_jack_interior_2",
+			"location":"predio_jack_interior_2",
 			"once": true,
 			"enabled":true
 		}
@@ -450,7 +450,7 @@
 		{
 		"name":"Apartamento_1",
 		"location":{
-		"location":"/root/MainTree/Interior/Apartamento_1",
+		"location":"Apartamento_1",
 		"x":0,
 		"y":0
 		},
@@ -459,7 +459,7 @@
 		{
 		"name":"Beco",
 		"location":{
-		"location":"/root/MainTree/WorldMapNode/WorldMap/CentralRegion",
+		"location":"WorldMap",
 		"x":-112,
 		"y":-88
 		},
@@ -468,7 +468,7 @@
 		{
 		"name":"prop_velinha",
 		"location":{
-			"location":"/root/MainTree/Interior/Interior_Condominio_1",
+			"location":"Interior_Condominio_1",
 			"x": 12,
 			"y": -48
 		},
@@ -477,7 +477,7 @@
 		{
 		"name":"jack_house",
 		"location":{
-			"location":"/root/MainTree/Interior/predio_jack_interior_2",
+			"location":"predio_jack_interior_2",
 			"x": 0,
 			"y": 0
 		},
@@ -486,7 +486,7 @@
 		{
 		"name":"jack_hallway",
 		"location":{
-			"location":"/root/MainTree/Interior/predio_jack_interior_1",
+			"location":"predio_jack_interior_1",
 			"x": 0,
 			"y": 0
 		},
@@ -495,7 +495,7 @@
 		{
 		"name":"garage",
 		"location":{
-			"location":"/root/MainTree/Interior/Garagem_interno",
+			"location":"Garagem_interno",
 			"x": 0,
 			"y": 0
 		},

@@ -13,6 +13,7 @@ func _ready():
 
 func load_data(dict):
 	position = Vector2(dict['location']['x'],dict['location']['y'])
+	$CollisionShape2D.shape = CircleShape2D.new()
 	$CollisionShape2D.shape.radius = dict['radius']
 
 

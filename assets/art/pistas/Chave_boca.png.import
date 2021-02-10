@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mapa.png-fc2978778e14ad509e58f40a085fd55f.stex"
+path="res://.import/Chave_boca.png-80700c6b3f7fa3095dc08712eab2c603.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Mapa.png"
-dest_files=[ "res://.import/Mapa.png-fc2978778e14ad509e58f40a085fd55f.stex" ]
+source_file="res://assets/art/pistas/Chave_boca.png"
+dest_files=[ "res://.import/Chave_boca.png-80700c6b3f7fa3095dc08712eab2c603.stex" ]
 
 [params]
 

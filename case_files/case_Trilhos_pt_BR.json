@@ -1,0 +1,566 @@
+{
+	"case_name":"Descarrilhamento",
+	"start_info":{
+		"x":-40,
+		"y":-56,
+		"map":"Hotel_room_1"
+	},
+	"villain":"Fred",
+	"NPCs":[
+		{
+			"name": "Amigo de Arthur",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["Boa noite Detetive","Tenho um caso para você","Meu amigo, Arthur Lage, foi morto ontém e quero que você encontre e prenda os culpados","Além disso, como sei que é novo na cidade, umas dicas: use Z para sair em portas. E quando encontrar o suspeito, aperte B para prende-lo","Você pode usar F6 para salvar e F7 para carregar depois","Aperte M para ver seu mapa e seguir em direção a cena do crime"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"00",
+			"location":{
+				"path":"Hotel_room_1",
+				"x": 24,
+				"y": -56
+			}
+		},
+		{
+			"name": "Trabalhadora 1",
+			"Type": 1,
+			"dialogs": {
+				"dialogo Inicial": ["Uma pena isso acontecer com uma pessoa tão jovem","As unicas pessoas que me vem a cabeça são","John Hux e Cris Haden."],
+				"later":["Te vejo por aí"],
+				"concordar":["Fico Feliz de ajudar"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"13",
+			"location":{
+				"path":"WorldMap",
+				"x": -544,
+				"y": 256
+			}
+		},
+		{
+			"name": "Trabalhador 2",
+			"Type": 3,
+			"dialogs": {
+				"dialogo Inicial": ["Moro aqui perto, ouvi uma moto chegando no pátio, eu ainda vi rapidinho pela janela"],
+				"later": ["Estou aqui o dia inteiro"],
+				"concordar": ["Pode confiar"],
+				"lie": ["Seu Detetive, não posso falar isso alto","Minha vida está em perigo"],
+				"recusa":["Pela minha própria segurança","Não falo mais nada"],
+				"doubt":["Eu não duvido do que eu falo"],
+				"verdade":["Foi um carro vermelho"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"12",
+			"location":{
+				"path":"WorldMap",
+				"x": -464,
+				"y": 352
+			}
+		},
+		{
+			"name": "Trabalhador 3",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["Acho que quem quer que veio, tava despreparado","Deve ter pego uma das nossas próprias ferramentas"],
+				"later": ["Até mais"],
+				"concordar": ["Faz sentido né?"],
+				"doubt":["Isso muda as coisas"],
+				"verdade":["O sujeito trouxe a própria ferramenta"],
+				"lie":["Tive uma ideia"],
+				"recusa":["Vou manter meus pensamentos só para mim"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"11",
+			"location":{
+				"path":"WorldMap",
+				"x": -560,
+				"y": 304
+			}
+		},
+		{
+			"name": "Vizinha 1",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["John está encrencado?","Ele trocou de carro recentemente, acho que ele comprou um carro vermelho"],
+				"later": ["Só voltar que estou aqui"],
+				"concordar": ["Que bom"],
+				"doubt":["Realmente, me confundi"],
+				"verdade":["O carro antigo dele era vermelho, o novo é azul"],
+				"lie":["John me disse isso"],
+				"recusa":["Vai tirar satisfação com ele"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"11",
+			"location":{
+				"path":"WorldMap",
+				"x": -344,
+				"y": 104
+			}
+		},
+		{
+			"name": "John",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["Trabalho com produção de filmes, eu tinha um carro vermelho, mas não é o que estava no dia do crime"],
+				"later": ["A disposição"],
+				"concordar": ["Que bom, preciso ir andando"],
+				"doubt":["Se quiser pode ir na garagem perguntar"],
+				"verdade":["Mas meu carro não tem essas marcas de Pneus"],
+				"lie":["Eu realmente não posso ficar perdendo tempo aqui"],
+				"recusa":["Estou sem tempo"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"04",
+			"location":{
+				"path":"WorldMap",
+				"x": 32,
+				"y": -272
+			}
+		},
+		{
+			"name": "Vizinho 1",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["Chris tinha trocado de carro a pouco tempo, acho pegou um carro amarelo"],
+				"later": ["Estarei aqui"],
+				"concordar": ["..."],
+				"lie":["Acha que estou mentindo? Eu até andei de carro com ele"],
+				"verdade":["O carro amarelo era o antigo, o carro que ele comprou foi vermelho"],
+				"doubt":["É verdade"],
+				"recusa":["Finge que não to aqui"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"05",
+			"location":{
+				"path":"WorldMap",
+				"x": -256,
+				"y": 112
+			}
+		},
+		{
+			"name": "Chris",
+			"Type": 1,
+			"dialogs": {
+				"dialogo Inicial": ["Comprei sim um carro vermelho esses ultimos dias, mas ainda não busquei na loja","andei com minha chefe e meu vizinho no carro antigo ontem mesmo"],
+				"later":["A disposição"],
+				"concordar":["Fico no aguardo das informações"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"06",
+			"location":{
+				"path":"WorldMap",
+				"x": -808,
+				"y": -248
+			}
+		},
+		{
+			"name": "Chefe",
+			"Type": 1,
+			"dialogs": {
+				"dialogo Inicial": ["Sim, eu estava com Chris na hora do crime, estavamos procurando uma casa nova para ele"," Mas me lembro que o Mecanico que atendeu ele na compra do carro era bem mal humorado"],
+				"later": ["Pode deixar"],
+				"concordar": ["Fico feliz"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":0,
+			"variation":"04",
+			"location":{
+				"path":"WorldMap",
+				"x": -912,
+				"y": -208
+			}
+		},
+		{
+			"name": "Paul",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["Cada funcionário que trabalha aqui tem seu próprio armário de ferramentas"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"14",
+			"location":{
+				"path":"Garagem_interno",
+				"x": 152,
+				"y": 56
+			}
+		},
+		{
+			"name": "Fred",
+			"Type": 0,
+			"dialogs": {
+				"dialogo Inicial": ["Não sei de nada sobre os suspeitos, apenas vendi um carro para um deles"],
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"13",
+			"location":{
+				"path":"Garagem_interno",
+				"x": -168,
+				"y": 8
+			}
+		},
+		{
+			"name": "Mecanico Chefe",
+			"Type": 2,
+			"dialogs": {
+				"dialogo Inicial": ["Teve um dos funcionários que saiu com o carro vermelho ontem, mas não sei qual deles, é quem vedeu pro tal de John"],
+				"lie":["Eu conheço meus funcionários e minha empresa"],
+				"recusa":["não posso mais te ajudar"],
+				"doubt":["Deixa eu ver esse recibo"],
+				"verdade":["Fred foi quem saiu com o carro vermelho ontem"]
+			},
+			"options": 2,
+			"state":{
+				"angry": false,
+				"defeated": false
+			},
+			"spriteFrames":1,
+			"variation":"12",
+			"location":{
+				"path":"Garagem_interno",
+				"x": 24,
+				"y": -40
+			}
+		}
+		
+	],
+	"Pistas":[
+		{
+			"analise":"A arma do Crime é uma chave de boca",
+			"state":{
+				"investigada":false
+			},
+			"name":"arma_crime",
+			"location":{
+				"path":"WorldMap",
+				"x": -296,
+				"y": 248
+			},
+			"npcs":[""],
+			"sprite":"Chave_boca"
+		},
+		{
+			"analise":"Marcas duplas, com certeza são de um carro",
+			"state":{
+				"investigada":false
+			},
+			"name":"tracks_car",
+			"location":{
+				"path":"WorldMap",
+				"x": -488,
+				"y": 424
+			},
+			"npcs":["Trabalhador 2","John"],
+			"sprite":"Tracks"
+		},
+		{
+			"analise":"Armário de ferramentas da companhia. Todas as ferramentas estão aqui, nenhuma faltando",
+			"state":{
+				"investigada":false
+			},
+			"name":"armario",
+			"location":{
+				"path":"WorldMap",
+				"x": -312,
+				"y": 208
+			},
+			"npcs":["Trabalhador 3"],
+			"sprite":"Gavetas"
+		},
+		{
+			"analise":"Recibo de Ingressos de filme",
+			"state":{
+				"investigada":false
+			},
+			"name":"ingressos",
+			"location":{
+				"path":"Casa_1",
+				"x": -8,
+				"y": -128
+			},
+			"npcs":[],
+			"sprite":"Documento"
+		},
+		{
+			"analise":"Recibo de compra de carro, Azul. feito por Fred",
+			"state":{
+				"investigada":false
+			},
+			"name":"jaqueta",
+			"location":{
+				"path":"Casa_1",
+				"x": -56,
+				"y": -128
+			},
+			"npcs":["Vizinha 1","Mecanico Chefe"],
+			"sprite":"Documento"
+		},
+		{
+			"analise":"Muita papelada, parece que ele trabalha de contador no café",
+			"state":{
+				"investigada":false
+			},
+			"name":"notas",
+			"location":{
+				"path":"Casa_2",
+				"x": 40,
+				"y": -88
+			},
+			"npcs":[""],
+			"sprite":"Documento"
+		},
+		{
+			"analise":"Recibo de compra de carro, Vermelho. feito por Paul",
+			"state":{
+				"investigada":false
+			},
+			"name":"recibo2",
+			"location":{
+				"path":"Casa_2",
+				"x": 56,
+				"y": -128
+			},
+			"npcs":["Vizinho 1"],
+			"sprite":"Documento"
+		},
+		{
+			"analise":"Armário de Fred. contém todas as ferramentas, com exceção de uma Chave de Boca",
+			"state":{
+				"investigada":false
+			},
+			"name":"armarioFred",
+			"location":{
+				"path":"Garagem_interno",
+				"x": -72,
+				"y": -48
+			},
+			"npcs":[],
+			"sprite":"Gavetas"
+		},
+	],
+	"POI":[
+		{
+		"location":{
+			"x":100,
+			"y":164,
+			},
+		"text":"Cena do Crime",
+		"visible": true
+		},
+		{
+		"location":{
+			"x":97,
+			"y":122,
+			},
+		"text":"Casas dos Suspeitos",
+		},
+		{
+		"location":{
+			"x":161,
+			"y":72,
+			},
+		"text":"Cinema",
+		},
+		{
+		"location":{
+			"x":29,
+			"y":76,
+			},
+		"text":"Café",
+		},
+		{
+		"location":{
+			"x":100,
+			"y":64,
+			},
+		"text":"Garagem",
+		}
+	],
+	"LogicRelay":[
+		{
+			"name":"lr_sus",
+			"signals":[
+				["../Trabalhadora 1","truth_revealed"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Casas dos Suspeitos"]
+			],
+			"location":"WorldMap",
+			"once": true,
+			"enabled":true
+		},
+		{
+			"name":"lr_cinema",
+			"signals":[
+				["../ingressos","pista_pega"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Cinema"]
+			],
+			"location":"Casa_1",
+			"once": true,
+			"enabled":true
+		},
+		{
+			"name":"lr_cafe",
+			"signals":[
+				["../notas","pista_pega"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Café"]
+			],
+			"location":"Casa_2",
+			"once": true,
+			"enabled":true
+		},
+		{
+			"name":"lr_garagem",
+			"signals":[
+				["../John","truth_revealed"],
+				["../Chefe","truth_revealed"]
+			],
+			"triggers":[
+				["UI","map_show_poi","Garagem"]
+			],
+			"location":"WorldMap",
+			"once": true,
+			"enabled":true
+		}
+	],
+	"mx_areas":[
+		{
+		"name":"patio",
+		"location":{
+		"location":"WorldMap",
+			"x":-512,
+			"y":344
+			},
+		"radius":128
+		},
+		{
+		"name":"casas",
+		"location":{
+		"location":"WorldMap",
+		"x":-304,
+		"y":104
+		},
+		"radius":64
+		},
+		{
+		"name":"mx_john",
+		"location":{
+			"location":"WorldMap",
+			"x": 32,
+			"y": -272
+		},
+		"radius":32
+		},
+		{
+		"name":"mx_Chris",
+		"location":{
+			"location":"WorldMap",
+			"x": -808,
+			"y": -248
+		},
+		"radius":80
+		},
+		{
+		"name":"mx_boss",
+		"location":{
+			"location":"WorldMap",
+			"x": -912,
+			"y": -208
+		},
+		"radius":80
+		},
+		{
+		"name":"garage",
+		"location":{
+			"location":"Garagem_interno",
+			"x": 0,
+			"y": 0
+		},
+		"radius":208
+		},
+		{
+		"name":"casa1",
+		"location":{
+			"location":"Casa_1",
+			"x": 0,
+			"y": 0
+		},
+		"radius":256
+		},
+		{
+		"name":"casa2",
+		"location":{
+			"location":"Casa_2",
+			"x": 0,
+			"y": 0
+		},
+		"radius":256
+		},
+		{
+		"name":"pistas",
+		"location":{
+			"location":"WorldMap",
+			"x": -312,
+			"y": 208
+		},
+		"radius":48
+		},
+	]
+}

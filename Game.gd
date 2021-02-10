@@ -185,7 +185,7 @@ func try_load_mx_area():
 	
 func load_mx_gameplay_area(dict):
 	var path = dict["location"]['location']
-	var target = get_node_or_null(path)
+	var target = get_map_node(path)
 	
 	## Não existe a cena agora
 	if not target:
@@ -203,7 +203,7 @@ func try_load_logic_relay():
 
 func load_logic_relay(dict):
 	var path = dict["location"]
-	var target = get_node_or_null(path)
+	var target = get_map_node(path)
 	
 	## Não existe a cena agora
 	if not target:
@@ -231,7 +231,7 @@ func load_npc(data):
 	return npc
 
 func instantiate_npc(npc):
-	var where = get_node_or_null(npc.location["path"])
+	var where = get_map_node(npc.location["path"])
 	if where:
 		var instance = npc.createNPCInstansce()
 		if instance:
@@ -244,7 +244,7 @@ func load_pista(data):
 	return pista
 
 func instantiate_pista(pista):
-	var where = get_node_or_null(pista.location["path"])
+	var where = get_map_node(pista.location["path"])
 	if where:
 		var instance = pista.createPistaInstansce()
 		if instance:
@@ -415,3 +415,9 @@ static func node_exists(node):
 	  return false
 
 	return true
+
+func get_map_node(nodeName):
+	if nodeName == "WorldMap":
+		return get_node_or_null('/root/MainTree/WorldMapNode/WorldMap')
+	else:
+		return get_node_or_null('/root/MainTree/Interior/'+nodeName)

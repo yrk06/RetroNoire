@@ -9,7 +9,7 @@ func search_cases():
 	cases = []
 	var ic = $CenterContainer/VBoxContainer/ItemList.get_item_count()
 	for p in range(ic):
-		$CenterContainer/VBoxContainer/ItemList.remove_item(p)
+		$CenterContainer/VBoxContainer/ItemList.remove_item(0)
 	for p in Game.get_files_in_folder("res://case_files"):
 		if 'ignore' in p:
 			continue

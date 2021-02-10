@@ -83,9 +83,7 @@ func save_data():
 	return dict
 	
 func createNPCInstansce():
-	print('instancing npc')
 	if Game.node_exists(physical_reference):
-		print('npc ' + name + ' already exists')
 		return
 	var NPC = preload('res://NPCs/NPC.tscn').instance()
 	NPC.Type = Type
